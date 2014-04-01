@@ -1,6 +1,5 @@
 public class HelloWorld
 {
-
 	/**
 	 * @param args
 	 */
@@ -9,6 +8,7 @@ public class HelloWorld
 	{
 		System.out.println("Hello World ! Je suis moi");
 		System.out.println("Bonjour moi.");
+		System.out.println("Conflit !");
 		System.out.println("test contrib.");
 	}
 }
