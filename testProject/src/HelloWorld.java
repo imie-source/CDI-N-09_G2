@@ -10,5 +10,6 @@ public class HelloWorld
 		System.out.println("Bonjour moi.");
 		System.out.println("Conflit !");
 		System.out.println("test contrib.");
+		System.out.println("ReConflit.");
 	}
 }
