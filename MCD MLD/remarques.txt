@@ -1,0 +1,78 @@
+21/02/2014
+
+MCD élaboré avec JMerise
+le MLD et le script de création des tables sont générés automatiquement à partir du MCD
+on ne modifie donc ni le MLD, ni le script
+s'il y a des modifications à faire elles doivent l'être au niveau du MCD
+Comme il y a cependant des modifications à faire sur le script - notamment JMerise
+met systematiquement les clefs étrangères à 'not null' - les faire avec le fichier supplémentaire
+alter table.sql
+
+NE PAS METTRE DE MAJUSCULE POUR LES IDENTIFIANTS
+
+1- MCD
+L'inclusion entre les relations dirige et travaille peut être gérée par un boolean
+au niveau de travaille. On a choisit de traiter cette inclusion au niveau du programme (du code)
+per ex un trigger qui a chaque fois que l'on attribut un chef de projet à un projet
+(foreign key proj_prf_id au niveau de projet) ou qu'on change de chef de projet
+s'assure que la relation entre entre ce prf_id et le proj_id existe bien au niveau
+de la table travaille (voir MLD)
+
+Dans la table ActionAnotifier le champ notif_validee si 'true' cette notification est archivée
+Au lieu de supprimer les notifications axquelles les utilisateurs ont répondu, on met ce boolean
+a 'true' ce qui permet d'archiver les notifications et donc d'en garder une trace.
+
+Dans la table Competence, une compétence non validée ne doit pas figurer dans l'arbre des compétences.
+
+2- MLD
+Un utilisateur envoie une notification. Il ya donc une creation d'un id_notif et selon que cet
+id_notif se retrouve dans la table Proposition_comp ou la table candidature il s'agit d'une
+proposition de compétence ou d'une candidature sur un projet.
+
+Les notifications sont exploitées par observation :
+
+Un utilsateur qui est invité sur un projet scrute la table Invitation_Projet (sur son prf_id) pour
+retrouver toutes ses invitations .
+
+Un administrateur observe la table proposition_comp pour retrouver les competances proposées et
+le profil qui les a proposé par l'intermediaire de la table envoyer
+
+Un profil est chef de projet si son prf_id est dans la table projet (proj_prf_id).
+Un chef de projet observe les tables candidatures (sur proj_id) et envoyer (sur l'id_notif associé)
+pour retrouver les gens qui se proposent sur son projet
+
+3- SCRIPT
+table Profil
+Tous les champs sont NOT NULL à part infos
+c'est sans doute un peu trop contraignant ??? (à voir)
+Une chose est certaine prf_prm_id peut être null un profil n'est pas obligatoirement
+relié à une promotion - notamment les enseignants - donc à modifier par 'alter table'
+
+table Competence
+comp_intitule ne doit pas être null ; un intitulé de compétence null ou chaine vide n'a pas de sens
+comp_id_1 peut-être null (la racine de l'arbre). Modifier par 'alter table'.
+
+table Projet
+La clef etrangere proj_prf_id (chef de projet) peut être null. On peut créer un projet
+sans encore avoir attribuer un chef de projet. Modifier par 'alter table'.
+Personne ne travaille sur un projet sans chef de projet car c'est le chef de projet
+qui forme son équipe. Donc sans chef de projet pas d'équipe.
+Un projet sans nom n'a pas de sens ; proj_nom de doit pas être null.
+
+Promotion
+not null pour tous les champs !
+
+ActionAnotifier
+not null pour tous les champs !
+
+Proposition_comp
+
+Invitation_Projet
+
+Candidature
+
+droit
+
+travaille
+
+envoyer

@@ -1,0 +1,108 @@
+
+ce jeux d'essai est la concatenation (ou l'execution) dans cet ordre
+essai1_drop.sql filrouge.sql essai1_alter.sql essai1_insert.sql
+
+bien sûr la base de données doit exister au préalable
+create database filrouge (par exemple)
+
+>>>>>>>>>>>>
+
+profil
+	disp	promo	droit
+super	non		super_admin
+admin	non		admin
+user3	oui	DL09	admin
+user4	oui	CDI09	utilisateur
+user5	oui	DL08	utilisateur
+user6	oui	DL09	utilisateur
+user7	oui	DL08	utilisateur
+user8	oui	CDI09	utilisateur
+
+
+>>>>>>>>>>>>
+
+'projet 1' n'a pas de chef de projet ; donc pour l'instant personne de travail dessus.
+
+user4 est le chef de projet de 'projet 2'
+il a invité user3 et user7 à participer au projet
+user3 a accepté ; user7 n'a pas encore répondu
+user5 a demandé à faire partie de ce 'projet 2'
+user4 a accepté
+
+donc user3, user4 et user5 travaillent sur 'projet 2'
+ils sont tous disponibles
+
+user5 est le chef de projet de 'projet 3'
+il a invité user3 et user6
+user3 a refusé ; user6 a accepté
+user8 a demandé à faire partie du projet il n'a pas été accepté
+
+donc user5, user6 travaillent sur projet 'projet 3'
+
+>>>>>>>>>>>>
+
+action_a_notifier	date_envoi	notif_validee
+	1	'10/03/2014 10:20'	oui		user4 a invite user3 sur projet2
+	2	'10/03/2014 10:30'	non		user4 a invite user7 sur projet2
+	3	'11/03/2014 14:00'	oui		user5 a demandé a faire partie de projet2
+	4	'12/03/2014 09:30'	oui		user5 a invité user3 sur projet3
+	5	'12/03/2014 09:32'	oui		user5 a invité user6 sur projet3
+	6	'13/03/2014 15:45'	oui		user8 a demandé a faire partie de projet3
+	7	'13/03/2014 15:50'	non		user8 a proposé la compétence Ruby qui n'a pas encore été validée
+
+envoyer
+	id_notif	prf_id
+	3		5
+	6		8
+	7		8
+
+candidature
+	id_notif	proj_id
+	3		2
+	6		3
+
+invitation_projet
+	id_notif	proj_id		prf_id
+	1		2		3
+	2		2		7
+	4		3		3
+	5		3		6
+
+>>>>>>>>>>>>
+
+competences :
+
+1 informatique
+2	langage 1
+3		C++ 2
+4		Java 2
+5		Python 2
+6	edi 1
+7		eclipse 6
+8		visual studio 6
+9 comptabilité
+10	générale 9
+11	analytique 9
+12		Ruby 2 -- la competence Ruby a été proposée par user8 mais n'a pas été validé
+
+proposition_comp
+	id_notif	comp_id
+	7		12
+
+-- user8 n'a pas encore renseigné ses competences
+possede
+	comp_niveau	comp_id		prf_id
+	2		7		3
+	4		4		3
+	3		5		4
+	4		7		4
+	1		10		5
+	5		11		6
+	3		8		7
+	3		3		7
+
+>>>>>>>>>>>>
+
+mettre en place des triggers pour mettre à jour les tables 'associations' !!
+ou au niveau regles métiers ???
+
