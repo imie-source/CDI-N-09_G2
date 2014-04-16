@@ -24,7 +24,11 @@ import javax.persistence.TemporalType;
 @Table(name = "profil")
 public class Profil implements Serializable
 {
-	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3752839960214853188L;
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
