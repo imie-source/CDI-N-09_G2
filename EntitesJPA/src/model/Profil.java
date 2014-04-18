@@ -1,8 +1,6 @@
 
 package model;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -35,7 +34,7 @@ public class Profil implements Serializable
 	private static final long serialVersionUID = 3752839960214853188L;
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "prf_id", unique = true, nullable = false)
 	private Integer id;
 
