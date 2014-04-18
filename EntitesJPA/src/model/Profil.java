@@ -8,9 +8,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -64,14 +68,14 @@ public class Profil implements Serializable
 	private Boolean disponibilite;
 
 	// @ManyToOne(fetch=FetchType.LAZY)
-	@ManyToOne
-	@JoinColumn(name = "prf_prm_id")
+	@ManyToMany
+	@JoinTable(name = "EMP_PROJ", joinColumns = { @JoinColumn(name = "EMP_ID", referencedColumnName = "ID") }, inverseJoinColumns = { @JoinColumn(name = "PROJ_ID", referencedColumnName = "ID") })
 	private Promotion promotion;
 
-	//
-	// @ManyToOne
-	// @JoinColumn(name="prf_droit_id")
-	// private Droit droit;
+	@Enumerated(EnumType.ORDINAL)
+	@ManyToOne
+	@JoinColumn(name = "droit_id")
+	private Droit droit;
 
 	public Profil()
 	{
