@@ -32,10 +32,10 @@ public class Competence implements Serializable
 	@Column(name = "comp_id", unique = true, nullable = false)
 	private Integer id;
 
-	@Column(name = "comp_intitule", unique = false, nullable = false)
+	@Column(name = "comp_intitule", nullable = false, length = 50)
 	private String intitule;
 
-	@Column(name = "comp_valide", unique = false, nullable = false)
+	@Column(name = "comp_valide", nullable = false)
 	private Boolean valide;
 
 	@OneToMany
