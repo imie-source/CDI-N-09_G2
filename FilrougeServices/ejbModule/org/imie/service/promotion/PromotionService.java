@@ -56,11 +56,6 @@ public class PromotionService implements PromotionServiceRemote,
 					condition,
 					"p.prmDatedebut='".concat(simpleDateFormat.format(
 							promotion.getPrmDatedebut()).concat("'")));
-			// ci-dessous on passe d'une date java.util a une date java.sql ; ce
-			// qui n'est pas utile pour nous
-			// nous nous traduisons une Date en String
-			// statement.setDate(compteurCondition++, new
-			// Date(personne.getDateNaiss().getTime()));
 		}
 		if (promotion.getPrmDatefin() != null)
 		{
@@ -84,7 +79,6 @@ public class PromotionService implements PromotionServiceRemote,
 	@Override
 	public Promotion updateClass(Promotion promotionToUpdate)
 	{
-		// TODO Auto-generated method stub
 		// promotionToUpdate est un objet Promotion avec Id
 		entityManager.merge(promotionToUpdate);
 		return null;
@@ -93,10 +87,16 @@ public class PromotionService implements PromotionServiceRemote,
 	@Override
 	public Promotion createClass(Promotion promotionToCreate)
 	{
-		// TODO Auto-generated method stub
 		// promotionToCreate est un objet Promotion sans Id
 		entityManager.persist(promotionToCreate);
 		return promotionToCreate;
+	}
+
+	@Override
+	public void deleteClassById(Integer id)
+	{
+		Promotion promotion = entityManager.find(Promotion.class, id);
+		entityManager.remove(promotion);
 	}
 
 	private String concatConditionString(String buildString, String condition)
