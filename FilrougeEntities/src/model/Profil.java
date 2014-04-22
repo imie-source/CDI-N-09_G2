@@ -28,35 +28,35 @@ public class Profil implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "prf_id", unique = true, nullable = false)
-	private Integer prfId;
+	private Integer id;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "prf_date_naissance")
-	private Date prfDateNaissance;
+	private Date dateNaissance;
 
 	@Column(name = "prf_disponibilite", nullable = false)
-	private Boolean prfDisponibilite;
+	private Boolean disponibilite;
 
 	@Column(name = "prf_email", nullable = false, length = 50)
-	private String prfEmail;
+	private String email;
 
 	@Column(name = "prf_email_public", nullable = false)
-	private Boolean prfEmailPublic;
+	private Boolean emailPublic;
 
 	@Column(name = "prf_ident_connexion", nullable = false, length = 25)
-	private String prfIdentConnexion;
+	private String identConnexion;
 
 	@Column(name = "prf_infos", length = 50)
-	private String prfInfos;
+	private String infos;
 
 	@Column(name = "prf_mdp_connexion", nullable = false, length = 25)
-	private String prfMdpConnexion;
+	private String mdpConnexion;
 
 	@Column(name = "prf_nom", nullable = false, length = 50)
-	private String prfNom;
+	private String nom;
 
 	@Column(name = "prf_prenom", nullable = false, length = 50)
-	private String prfPrenom;
+	private String prenom;
 
 	// uni-directional many-to-one association to Droit
 	@ManyToOne
@@ -72,109 +72,109 @@ public class Profil implements Serializable
 	{
 	}
 
-	public Integer getPrfId()
+	public Integer getId()
 	{
-		return this.prfId;
+		return id;
 	}
 
-	public void setPrfId(Integer prfId)
+	public void setId(Integer id)
 	{
-		this.prfId = prfId;
+		this.id = id;
 	}
 
-	public Date getPrfDateNaissance()
+	public Date getDateNaissance()
 	{
-		return this.prfDateNaissance;
+		return dateNaissance;
 	}
 
-	public void setPrfDateNaissance(Date prfDateNaissance)
+	public void setDateNaissance(Date dateNaissance)
 	{
-		this.prfDateNaissance = prfDateNaissance;
+		this.dateNaissance = dateNaissance;
 	}
 
-	public Boolean getPrfDisponibilite()
+	public Boolean getDisponibilite()
 	{
-		return this.prfDisponibilite;
+		return disponibilite;
 	}
 
-	public void setPrfDisponibilite(Boolean prfDisponibilite)
+	public void setDisponibilite(Boolean disponibilite)
 	{
-		this.prfDisponibilite = prfDisponibilite;
+		this.disponibilite = disponibilite;
 	}
 
-	public String getPrfEmail()
+	public String getEmail()
 	{
-		return this.prfEmail;
+		return email;
 	}
 
-	public void setPrfEmail(String prfEmail)
+	public void setEmail(String email)
 	{
-		this.prfEmail = prfEmail;
+		this.email = email;
 	}
 
-	public Boolean getPrfEmailPublic()
+	public Boolean getEmailPublic()
 	{
-		return this.prfEmailPublic;
+		return emailPublic;
 	}
 
-	public void setPrfEmailPublic(Boolean prfEmailPublic)
+	public void setEmailPublic(Boolean emailPublic)
 	{
-		this.prfEmailPublic = prfEmailPublic;
+		this.emailPublic = emailPublic;
 	}
 
-	public String getPrfIdentConnexion()
+	public String getIdentConnexion()
 	{
-		return this.prfIdentConnexion;
+		return identConnexion;
 	}
 
-	public void setPrfIdentConnexion(String prfIdentConnexion)
+	public void setIdentConnexion(String identConnexion)
 	{
-		this.prfIdentConnexion = prfIdentConnexion;
+		this.identConnexion = identConnexion;
 	}
 
-	public String getPrfInfos()
+	public String getInfos()
 	{
-		return this.prfInfos;
+		return infos;
 	}
 
-	public void setPrfInfos(String prfInfos)
+	public void setInfos(String infos)
 	{
-		this.prfInfos = prfInfos;
+		this.infos = infos;
 	}
 
-	public String getPrfMdpConnexion()
+	public String getMdpConnexion()
 	{
-		return this.prfMdpConnexion;
+		return mdpConnexion;
 	}
 
-	public void setPrfMdpConnexion(String prfMdpConnexion)
+	public void setMdpConnexion(String mdpConnexion)
 	{
-		this.prfMdpConnexion = prfMdpConnexion;
+		this.mdpConnexion = mdpConnexion;
 	}
 
-	public String getPrfNom()
+	public String getNom()
 	{
-		return this.prfNom;
+		return nom;
 	}
 
-	public void setPrfNom(String prfNom)
+	public void setNom(String nom)
 	{
-		this.prfNom = prfNom;
+		this.nom = nom;
 	}
 
-	public String getPrfPrenom()
+	public String getPrenom()
 	{
-		return this.prfPrenom;
+		return prenom;
 	}
 
-	public void setPrfPrenom(String prfPrenom)
+	public void setPrenom(String prenom)
 	{
-		this.prfPrenom = prfPrenom;
+		this.prenom = prenom;
 	}
 
 	public Droit getDroit()
 	{
-		return this.droit;
+		return droit;
 	}
 
 	public void setDroit(Droit droit)
@@ -184,7 +184,7 @@ public class Profil implements Serializable
 
 	public Promotion getPromotion()
 	{
-		return this.promotion;
+		return promotion;
 	}
 
 	public void setPromotion(Promotion promotion)
