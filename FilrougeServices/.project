@@ -3,6 +3,7 @@
 	<name>FilrougeServices</name>
 	<comment></comment>
 	<projects>
+		<project>FilrougeEntities</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
