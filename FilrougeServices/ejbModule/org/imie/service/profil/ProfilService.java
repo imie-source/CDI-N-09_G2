@@ -40,22 +40,26 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Profil> rechercherProfil(Profil profil)
 	{
-
+		// Permet de fabriquer la requete morceau par morceau
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 
+		// Contient les predicates
 		CriteriaQuery<Profil> criteriaQuery = criteriaBuilder
 				.createQuery(Profil.class);
 
+		// Entite concernée
 		Root<Profil> rootProfil = criteriaQuery.from(Profil.class);
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
+		// Filtre sur id
 		if (profil.getId() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
 					rootProfil.<Integer> get("id"), profil.getId()));
 		}
 
+		// Filtre sur prenom
 		if (profil.getPrenom() != null)
 		{
 			predicates.add(criteriaBuilder.like(
@@ -63,12 +67,14 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 					"%".concat(profil.getPrenom()).concat("%")));
 		}
 
+		// Filtre sur nom
 		if (profil.getNom() != null)
 		{
 			predicates.add(criteriaBuilder.like(rootProfil.<String> get("nom"),
 					"%".concat(profil.getPrenom()).concat("%")));
 		}
 
+		// Filtre sur date de naissance
 		if (profil.getDateNaissance() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
@@ -76,9 +82,11 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 					profil.getDateNaissance()));
 		}
 
+		// Ajout des criteres de recherche fabriques ci dessus
 		criteriaQuery.where((Predicate[]) predicates
 				.toArray(new Predicate[] {}));
 
+		// Execution de la requete
 		List<Profil> result = entityManager.createQuery(criteriaQuery)
 				.getResultList();
 
