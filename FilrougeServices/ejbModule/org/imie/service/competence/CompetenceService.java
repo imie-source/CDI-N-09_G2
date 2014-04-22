@@ -49,8 +49,8 @@ public class CompetenceService implements CompetenceServiceRemote,
 		List<Profil> result = (List<Profil>) query.getResultList();
 		for (Profil profil : result)
 		{
-			System.out.format("%d %s %s (%d %s)", profil.getPrfId(), profil
-					.getPrfNom(), profil.getPrfPrenom(), profil.getDroit()
+			System.out.format("%d %s %s (%d %s)", profil.getId(), profil
+					.getNom(), profil.getPrenom(), profil.getDroit()
 					.getDroitId(), profil.getDroit().getDroitIntitule());
 			if (profil.getPromotion() == null)
 			{
