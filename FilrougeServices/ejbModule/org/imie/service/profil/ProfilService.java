@@ -50,23 +50,60 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		// if()
+		if (profil.getId() != null)
+		{
+			predicates.add(criteriaBuilder.equal(
+					rootProfil.<Integer> get("id"), profil.getId()));
+		}
 
-		return null;
+		if (profil.getPrenom() != null)
+		{
+			predicates.add(criteriaBuilder.like(
+					rootProfil.<String> get("prenom"),
+					"%".concat(profil.getPrenom()).concat("%")));
+		}
+
+		if (profil.getNom() != null)
+		{
+			predicates.add(criteriaBuilder.like(rootProfil.<String> get("nom"),
+					"%".concat(profil.getPrenom()).concat("%")));
+		}
+
+		if (profil.getDateNaissance() != null)
+		{
+			predicates.add(criteriaBuilder.equal(
+					rootProfil.<String> get("dateNaissance"),
+					profil.getDateNaissance()));
+		}
+
+		criteriaQuery.where((Predicate[]) predicates
+				.toArray(new Predicate[] {}));
+
+		List<Profil> result = entityManager.createQuery(criteriaQuery)
+				.getResultList();
+
+		return result;
 	}
 
 	@Override
 	public void supprimerProfil(Profil profil)
 	{
-		// TODO Auto-generated method stub
+		if (profil.getId() != null)
+		{
+			entityManager.remove(profil);
+		}
 
 	}
 
 	@Override
 	public Profil mettreAJour(Profil profil)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Profil result = new Profil();
+		if (profil.getId() != null)
+		{
+			result = entityManager.merge(profil);
+		}
+		return result;
 	}
 
 }
