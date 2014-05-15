@@ -10,10 +10,8 @@ import model.Profil;
 @Local
 public interface ProfilServiceLocal
 {
-
-	List<Profil> rechercherProfil(Profil profil);
-
-	void supprimerProfil(Profil profil);
-
-	Profil mettreAJour(Profil profil);
+	public List<Profil> rechercherProfil(Profil profil);
+	public Profil creerProfil(Profil profil);
+	public Profil mettreAJourProfil(Profil profil);
+	public void supprimerProfil(Profil profil);
 }

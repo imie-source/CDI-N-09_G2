@@ -10,11 +10,8 @@ import model.Promotion;
 @Local
 public interface PromotionServiceLocal
 {
-	public List<Promotion> lookForClass(Promotion promotion);
-
-	public Promotion updateClass(Promotion promotionToUpdate);
-
-	public Promotion createClass(Promotion promotionToCreate);
-
-	public void deleteClassById(Integer id);
+	public List<Promotion> rechercherPromotion(Promotion promotion);
+	public Promotion creerPromotion(Promotion promotionToCreate);
+	public Promotion mettreAJourPromotion(Promotion promotionToUpdate);
+	public void supprimerPromotion(Promotion promotion);
 }

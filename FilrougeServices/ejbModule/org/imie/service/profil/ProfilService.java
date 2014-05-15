@@ -92,6 +92,13 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 
 		return result;
 	}
+	
+	@Override
+	public Profil creerProfil(Profil profil) 
+	{
+		entityManager.persist(profil);
+		return profil;
+	}
 
 	@Override
 	public void supprimerProfil(Profil profil)
@@ -104,7 +111,7 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 	}
 
 	@Override
-	public Profil mettreAJour(Profil profil)
+	public Profil mettreAJourProfil(Profil profil)
 	{
 		Profil result = new Profil();
 		if (profil.getId() != null)

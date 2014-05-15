@@ -10,7 +10,10 @@ import model.Competence;
 @Local
 public interface CompetenceServiceLocal
 {
-	public void test();
-
+	public List<Competence> rechercherCompetence(Competence competence);
+	public Competence creerCompetence(Competence competence);
+	public Competence mettreAJourCompetence(Competence competence);
+	public void supprimerCompetence(Competence competence);
 	public List<Competence> skillsTree(Boolean validated);
+//	public void test();
 }

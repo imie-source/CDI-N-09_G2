@@ -33,7 +33,7 @@ public class PromotionService implements PromotionServiceRemote,
 	}
 
 	@Override
-	public List<Promotion> lookForClass(Promotion promotion)
+	public List<Promotion> rechercherPromotion(Promotion promotion)
 	{
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -77,7 +77,7 @@ public class PromotionService implements PromotionServiceRemote,
 	}
 
 	@Override
-	public Promotion updateClass(Promotion promotionToUpdate)
+	public Promotion mettreAJourPromotion(Promotion promotionToUpdate)
 	{
 		// promotionToUpdate est un objet Promotion avec Id
 		entityManager.merge(promotionToUpdate);
@@ -85,7 +85,7 @@ public class PromotionService implements PromotionServiceRemote,
 	}
 
 	@Override
-	public Promotion createClass(Promotion promotionToCreate)
+	public Promotion creerPromotion(Promotion promotionToCreate)
 	{
 		// promotionToCreate est un objet Promotion sans Id
 		entityManager.persist(promotionToCreate);
@@ -93,10 +93,12 @@ public class PromotionService implements PromotionServiceRemote,
 	}
 
 	@Override
-	public void deleteClassById(Integer id)
+	public void supprimerPromotion(Promotion promotion)
 	{
-		Promotion promotion = entityManager.find(Promotion.class, id);
-		entityManager.remove(promotion);
+		if (promotion.getPrmId() != null) 
+		{
+			entityManager.remove(promotion);
+		}
 	}
 
 	private String concatConditionString(String buildString, String condition)
