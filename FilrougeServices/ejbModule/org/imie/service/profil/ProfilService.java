@@ -17,12 +17,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.imie.service.exception.ServiceException;
+
 import model.Profil;
 
 /**
  * Session Bean implementation class ProfilService
  */
-@Stateless
+@Stateless(name="ProfileService")
 @LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
@@ -121,6 +123,56 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 		{
 			result = entityManager.merge(profil);
 		}
+		return result;
+	}
+
+	@Override
+	public Profil verifAuthentification(Profil profil) throws ServiceException {
+		if ((profil.getIdentConnexion() == null || profil.getIdentConnexion().isEmpty() )
+				|| (profil.getMdpConnexion() == null || profil.getMdpConnexion().isEmpty()))
+		{
+			throw new ServiceException("La personne à authentifier doit renseigner son Login et son Password");
+		}
+		// Permet de fabriquer la requete morceau par morceau
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+
+		// Contient les predicates
+		CriteriaQuery<Profil> criteriaQuery = criteriaBuilder
+				.createQuery(Profil.class);
+
+		// Entite concernée
+		Root<Profil> rootProfil = criteriaQuery.from(Profil.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		// Filtre sur login
+		if (profil.getIdentConnexion() != null)
+		{
+			predicates.add(criteriaBuilder.equal(
+					rootProfil.<String> get("identConnexion"), profil.getIdentConnexion()));
+		}
+
+		// Filtre sur mdp
+		if (profil.getMdpConnexion() != null)
+		{
+			predicates.add(criteriaBuilder.equal(rootProfil.<String> get("mdpConnexion"),
+					profil.getMdpConnexion()));
+		}
+		
+
+		// Ajout des criteres de recherche fabriques ci dessus
+		criteriaQuery.where((Predicate[]) predicates
+				.toArray(new Predicate[] {}));
+
+		// Execution de la requete
+		List<Profil> profils = entityManager.createQuery(criteriaQuery)
+				.getResultList();
+		Profil result = null;
+		if (!profils.isEmpty())
+		{
+			result = profils.get(0);
+		}
+
 		return result;
 	}
 
