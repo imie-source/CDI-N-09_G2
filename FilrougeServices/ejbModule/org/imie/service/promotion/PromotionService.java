@@ -60,7 +60,7 @@ public class PromotionService implements PromotionServiceRemote,
 		if (promotion.getPrmId() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
-					rootPromotion.<Integer> get("id"), promotion.getPrmId()));
+					rootPromotion.<Integer> get("prmId"), promotion.getPrmId()));
 		}
 		
 		// Filtre sur L'intitulé
