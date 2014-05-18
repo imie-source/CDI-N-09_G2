@@ -103,7 +103,7 @@ public class CompetenceService implements CompetenceServiceRemote,
 	{
 		if (competence.getCompId() != null)
 		{
-			entityManager.remove(competence);
+			entityManager.remove(entityManager.merge(competence));
 		}
 	}
 

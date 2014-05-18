@@ -62,18 +62,18 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 					rootProfil.<Integer> get("id"), profil.getId()));
 		}
 
+		// Filtre sur nom
+		if (profil.getNom() != null)
+		{
+			predicates.add(criteriaBuilder.like(rootProfil.<String> get("nom"),
+					"%".concat(profil.getNom()).concat("%")));
+		}
+		
 		// Filtre sur prenom
 		if (profil.getPrenom() != null)
 		{
 			predicates.add(criteriaBuilder.like(
 					rootProfil.<String> get("prenom"),
-					"%".concat(profil.getPrenom()).concat("%")));
-		}
-
-		// Filtre sur nom
-		if (profil.getNom() != null)
-		{
-			predicates.add(criteriaBuilder.like(rootProfil.<String> get("nom"),
 					"%".concat(profil.getPrenom()).concat("%")));
 		}
 
@@ -108,7 +108,7 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 	{
 		if (profil.getId() != null)
 		{
-			entityManager.remove(profil);
+			entityManager.remove(entityManager.merge(profil));
 		}
 
 	}
