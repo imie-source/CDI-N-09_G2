@@ -1,0 +1,147 @@
+﻿body {
+	background: black url('images/fond.jpg') center 0 no-repeat !important;
+}
+.header {
+	width: 100%;
+	height: 150px;
+}
+.contenu {
+}
+.footer {
+	position: absolute;
+	width: 100%;
+	top: 830px;
+	height: 30px;
+	text-align: center;
+	border-bottom-color: #268e00;
+	border-bottom-style: ridge;
+	border-top-color: #268e00;
+	border-top-style: ridge;
+	color: #268e00;
+}
+.table_projets {
+	border: medium darkgreen ridge;
+	text-align: center;
+	color: #268e00;
+	background-color: #333333;
+}
+.table_projets th {
+	color: black;
+	background-color: #268e00;
+}
+h2 {
+	background-image: linear-gradient(90deg, #268e00, #333333);
+	text-align: left;
+}
+.input {
+	background-color: #268e00;;
+}
+.table_projets2 {
+	border: medium darkgreen ridge;
+	text-align: center;
+	color: #268e00;
+}
+.menu {
+	text-align: center;
+	width: 100%;
+	background: #333333;
+}
+.div_profil {
+	margin: auto;
+	width: 50%;
+}
+.div_photo {
+	width: 130px;
+	margin: auto;
+	float: left;
+}
+.div_contenu_profil {
+	border: medium #268e00 ridge;
+	border-radius: 10px;
+	background-color: black;
+	float: left;
+	margin-left: 2%;
+	width: 70%;
+}
+.table_profil td, th {
+	text-align: left;
+	color: #268e00;
+}
+.label_profil {
+	color: #6b6b6b;
+}
+.a_profil {
+	color: #268e00;
+	text-decoration: none;
+}
+.img_photo {
+	border: medium #268e00 ridge;
+	border-radius: 10px;
+}
+.a_profil2 {
+	color: #6b6b6b;
+	text-decoration: none;
+}
+.fieldset_profil {
+	border-color: #268e00;
+	background-color: black;
+	color: #268e00;
+}
+.fieldset_profil legend {
+	color: #6b6b6b;
+}
+.table_comp_profil td {
+	padding-right: 20px;
+}
+.shadow {
+	width: 600px;
+	height: 600px;
+	border: medium #268e00 ridge;
+	border-radius: 10px;
+	background-color: black;
+	box-shadow: 10px 10px 5px #888888;
+	position:absolute;
+	margin-top:-20px;
+	margin-left:150px;
+	display:none;
+	z-index:99;
+	overflow-y:scroll
+}
+.label_close {
+	border:thin #268e00 ridge;
+	cursor:pointer;
+	color:#268e00;
+	float:right;
+	margin-right:3px;
+	margin-top:3px
+}
+.notification {
+	float:right;
+	margin-right: 50px;
+}
+.compt_notif {
+	border: thin #268e00 ridge;
+	border-radius: 50px;
+	background-color:#9BFBB4;
+	font-size:medium;
+	font-weight:bold;
+	text-align:center;
+	position:relative;
+	top:-20px;
+	left:25px;
+	width:25px
+}
+.div_cont {
+	margin:auto;
+	text-align:center
+}
+.projet_input {
+	width:250px
+}
+.projet_textarea {
+	width:350px;
+	height:150px
+}
+.label_log {
+	color:#268e00;
+}
