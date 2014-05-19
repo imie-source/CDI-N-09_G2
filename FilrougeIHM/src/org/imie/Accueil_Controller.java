@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Projet;
 
-import org.imie.service.projet.ProjetService;
+import org.imie.service.projet.ProjetServiceLocal;
 
 /**
  * Servlet implementation class Accueil_Controller
@@ -26,7 +26,7 @@ public class Accueil_Controller extends HttpServlet
 	private static final long serialVersionUID = 1L;
 
 	@EJB(beanName = "ProjetService")
-	private ProjetService projetService;
+	private ProjetServiceLocal projetService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
