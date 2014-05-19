@@ -15,47 +15,75 @@
 		<div class="div_profil">
 			<div class="div_photo">
 				<img alt="" class="img_photo" src="images/the-mask.jpg" width="130px" /></div>
+				
+				
 			<div class="div_contenu_profil">
 	
-
-<label class="label_profil">Login : </label><label>TODO</label>
-<label class="label_profil">Mot de passe : </label>
-						<a class="a_profil" href="#">TODO</a>
-
-		<label>TODO Prenom NOM</label>
-
-	<label>TODO age</label>
-
-						<label>TODO ville</label>
-						<a class="a_profil2" href="#">Modifier</a>
-						<input name="Checkbox1" type="checkbox" />
-						<label class="a_profil2">Masquer cette information</label>
-
-						<label>TODO mail</label>
-						<a class="a_profil2" href="#">Modifier</a>
-
-						<input checked="checked" name="Checkbox1" type="checkbox" /><label class="a_profil2">
-						Masquer cette information</label>
-						<label>TODO tel</label><a class="a_profil2" href="#">Modifier</a>
-						
-						<input checked="checked" name="Checkbox1" type="checkbox" /><label class="a_profil2">
-						Masquer cette information</label>
-
-						<label class="label_profil">Promotion : </label>
-						<label>Promo1</label>
-					
-					
-						<label class="label_profil">Lieu de formation :
-						</label><label>Ville1</label>
-
-						<label class="label_profil">Disponibilité : </label>
-						<input checked="checked" name="Radio1" type="radio" /><label> 
-						oui</label><input name="Radio1" type="radio" /><label> non</label>
+				<div class="row_profil">
+					<label class="label_profil">Login : </label><label>TODO</label>
+				</div>
+				
+				<div class="row_profil">
+				<label class="label_profil">Mot de passe : </label>
+				<a class="a_profil" href="#">TODO</a>
+				</div>
+				
+				<div class="row_profil">
+					<label>TODO Prenom NOM</label>				
+				</div>
 	
+				<div class="row_profil">
+					<label>TODO age</label>
+				</div>
+				
+				<div class="row_profil">
+					<label>TODO ville</label>
+					<a class="a_profil2" href="#">Modifier</a>
+					<input name="Checkbox1" type="checkbox" />
+					<label class="a_profil2">Masquer cette information</label>
+				</div>
+			
+				<div class="row_profil">
+					<label>TODO mail</label>
+					<a class="a_profil2" href="#">Modifier</a>
+					<input checked="checked" name="Checkbox1" type="checkbox" />
+					<label class="a_profil2">Masquer cette information</label>
+				</div>
+				
+				<div class="row_profil">
+					<label>TODO tel</label>
+					<a class="a_profil2" href="#">Modifier</a>	
+					<input checked="checked" name="Checkbox1" type="checkbox" />
+					<label class="a_profil2">Masquer cette information</label>
+				</div>
+				
+				
+				<div class="row_profil">
+					<label class="label_profil">Promotion : </label>
+					<label>TODO PROMO</label>
+				</div>
+				
+				
+				<div class="row_profil">
+					<label class="label_profil">Lieu de formation :</label>
+					<label>TODO ville</label>
+				</div>
+				
+				<div class="row_profil">
+					<label class="label_profil">Disponibilité : </label>
+					<input checked="checked" name="Radio1" type="radio" />
+					<label> oui</label>
+					<input name="Radio1" type="radio" />
+					<label> non</label>
+				</div>
+
+
 
 			</div>
+			
 			<br />
 			<br />
+			
 			<div id="shadow" class="shadow">
 				<label class="label_close" onclick="cache_shadow()">X</label>
 				<div id="cssmenu2">

@@ -62,14 +62,24 @@ h2 {
 	float: left;
 	margin-left: 2%;
 	width: 70%;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .table_profil td, th {
 	text-align: left;
 	color: #268e00;
 }
+.fieldset_profil {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 .label_profil {
 	color: #6b6b6b;
 	margin-right: 10px;
+}
+.row_profil {
+	margin-left : 5px;
+	color: #FFFFFF;
 }
 .a_profil {
 	color: #268e00;
