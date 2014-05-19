@@ -3,7 +3,6 @@
 	<name>FilrougeIHM</name>
 	<comment></comment>
 	<projects>
-		<project>FilrougeServices</project>
 		<project>FilrougeEntities</project>
 	</projects>
 	<buildSpec>

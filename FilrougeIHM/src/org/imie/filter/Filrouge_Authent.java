@@ -73,7 +73,7 @@ public class Filrouge_Authent implements Filter
 		if (httpServletRequest.getRequestURI().contains("Login"))
 		{
 			authentifying = true;
-			// On intercepte de force les mthodes post et si on a validé
+			// On intercepte de force les méthodes post et si on a validé
 			if (httpServletRequest.getMethod().equals("POST")
 					&& httpServletRequest.getParameter("validate") != null)
 			{
