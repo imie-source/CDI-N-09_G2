@@ -118,11 +118,9 @@ public class Filrouge_Authent implements Filter
 		{
 			authentified = true;
 		}
-		// Si on a pas onterrompu la requête et que l'on est pas en
-		// authentification
-		// ni authentifié et que c'est une ressource a scanner alors on redirige
-		// vers
-		// la page de login
+		// Si on a pas interrompu la requête et que l'on est pas en
+		// authentification ni authentifié et que c'est une ressource
+		// a scanner alors on redirige vers la page de login
 		if (!requestInterupted)
 		{
 			if (!authentified && !authentifying && resourceToScan)
