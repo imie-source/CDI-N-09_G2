@@ -1,4 +1,4 @@
-package org.imie.service;
+package org.imie.service.projet;
 
 import java.util.List;
 

@@ -17,20 +17,20 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.imie.service.exception.ServiceException;
-
 import model.Profil;
+
+import org.imie.service.exception.ServiceException;
 
 /**
  * Session Bean implementation class ProfilService
  */
-@Stateless(name="ProfileService")
+@Stateless(name = "ProfilService")
 @LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 {
 
-	@PersistenceContext(unitName="FilrougeEntities")
+	@PersistenceContext(unitName = "FilrougeEntities")
 	private EntityManager entityManager;
 
 	/**
@@ -70,7 +70,7 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 			predicates.add(criteriaBuilder.like(rootProfil.<String> get("nom"),
 					"%".concat(profil.getNom()).concat("%")));
 		}
-		
+
 		// Filtre sur prenom
 		if (profil.getPrenom() != null)
 		{
@@ -97,9 +97,9 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 
 		return result;
 	}
-	
+
 	@Override
-	public Profil creerProfil(Profil profil) 
+	public Profil creerProfil(Profil profil)
 	{
 		entityManager.persist(profil);
 		return profil;
@@ -127,11 +127,15 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 	}
 
 	@Override
-	public Profil verifAuthentification(Profil profil) throws ServiceException {
-		if ((profil.getIdentConnexion() == null || profil.getIdentConnexion().isEmpty() )
-				|| (profil.getMdpConnexion() == null || profil.getMdpConnexion().isEmpty()))
+	public Profil verifAuthentification(Profil profil) throws ServiceException
+	{
+		if ((profil.getIdentConnexion() == null || profil.getIdentConnexion()
+				.isEmpty())
+				|| (profil.getMdpConnexion() == null || profil
+						.getMdpConnexion().isEmpty()))
 		{
-			throw new ServiceException("La personne à authentifier doit renseigner son Login et son Password");
+			throw new ServiceException(
+					"La personne à authentifier doit renseigner son Login et son Password");
 		}
 		// Permet de fabriquer la requete morceau par morceau
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -149,16 +153,17 @@ public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 		if (profil.getIdentConnexion() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
-					rootProfil.<String> get("identConnexion"), profil.getIdentConnexion()));
+					rootProfil.<String> get("identConnexion"),
+					profil.getIdentConnexion()));
 		}
 
 		// Filtre sur mdp
 		if (profil.getMdpConnexion() != null)
 		{
-			predicates.add(criteriaBuilder.equal(rootProfil.<String> get("mdpConnexion"),
+			predicates.add(criteriaBuilder.equal(
+					rootProfil.<String> get("mdpConnexion"),
 					profil.getMdpConnexion()));
 		}
-		
 
 		// Ajout des criteres de recherche fabriques ci dessus
 		criteriaQuery.where((Predicate[]) predicates

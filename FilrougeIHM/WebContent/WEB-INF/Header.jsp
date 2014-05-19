@@ -1,4 +1,4 @@
-</div><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header class="header">
 	<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	<div class="notification">
@@ -20,7 +20,7 @@
 				<li><a href="etudiants.html"><span>Etudiants</span></a></li>
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
-					<li><a href="creer_projet.html"><span>Créer un projet</span></a></li>
+					<li><a href="/FilrougeIHM/Creer_projet"><span>Créer un projet</span></a></li>
 					<li><a href="gerer_competence.html"><span>Gérer les compétences</span></a></li>
 					<li><a href="importer_fichier.html"><span>Importer un fichier 
 					Excel</span></a></li>
@@ -35,7 +35,7 @@
 				</ul>
 				</li>
 				<li><a href="/FilrougeIHM/Profil"><span>Mon Profil</span></a></li>
-				<li class="last"><a href="deconnexion.html"><span>Déconnexion</span></a></li>
+				<li class="last"><a href="/FilrougeIHM/Deconnexion"><span>Déconnexion</span></a></li>
 			</ul>
 		</div>
 	</div>

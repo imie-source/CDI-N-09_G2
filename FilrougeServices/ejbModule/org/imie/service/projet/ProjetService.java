@@ -1,5 +1,5 @@
 
-package org.imie.service;
+package org.imie.service.projet;
 
 import java.util.ArrayList;
 import java.util.List;

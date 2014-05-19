@@ -9,7 +9,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <link href="/FilrougeIHM/style/style.css" rel="stylesheet" />
 <link href="/FilrougeIHM/style/style_menu.css" rel="stylesheet" />
-<title>Untitled 1</title>
+<title>Accueil</title>
 </head>
 
 <body>
@@ -19,55 +19,32 @@
 	<div class="contenu">
 		<h2>Accueil - Derniers Projets Ajoutés</h2>
 		<table align="center" border="2" class="table_projets">
-			<tr>
-				<th>Nom du projet</th>
-				<th>Descriptif</th>
-				<th>Date de début</th>
-				<th>Date de fin</th>
-				<th>Avancement du projet</th>
-			</tr>
-			<tr>
-				<td>Projet 1</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb0.png" /></td>
-			</tr>
-			<tr>
-				<td>Projet 2</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb0.png" /></td>
-			</tr>
-			<tr>
-				<td>Projet 3</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb1.png" /></td>
-			</tr>
-			<tr>
-				<td>Projet 4</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb1.png" /></td>
-			</tr>
-			<tr>
-				<td>Projet 5</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb1.png" /></td>
-			</tr>
-			<tr>
-				<td>Projet 6</td>
-				<td>Blablabla</td>
-				<td>13/03/2014</td>
-				<td>13/08/2014</td>
-				<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb2.png" /></td>
-			</tr>
+			<thead>
+				<tr>
+					<th>Nom du projet</th>
+					<th>Descriptif</th>
+					<th>Date de début</th>
+					<th>Date de fin</th>
+					<th>Avancement du projet</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<c:forEach var="projet" items="${ projets }">
+			
+					<tr>
+						<td><c:out value="${projet.projNom }"></c:out></td>
+						<td><c:out value="${projet.projDescription }"></c:out></td>
+						<td><c:set var="date" value="${projet.projDatedebut }" />
+							<fmt:formatDate pattern="dd/MM/yyyy" value="${date }"/></td>
+						<td><c:set var="date" value="${projet.projDatedefin }" />
+							<fmt:formatDate pattern="dd/MM/yyyy" value="${date }"/></td>
+						<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb0.png" /></td>
+					</tr>
+					
+				</c:forEach>
+				
+			</tbody>
 		</table>
 	</div>
 	<div class="footer">

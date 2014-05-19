@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Profil;
 
 import org.imie.service.exception.ServiceException;
-import org.imie.service.profil.ProfilService;
+import org.imie.service.profil.ProfilServiceLocal;
 
 /**
  * Servlet Filter implementation class Filrouge_Authent
@@ -28,8 +28,8 @@ import org.imie.service.profil.ProfilService;
 public class Filrouge_Authent implements Filter
 {
 
-	@EJB(beanName = "ProfileService")
-	private ProfilService profilService;
+	@EJB(beanName = "ProfilService")
+	private ProfilServiceLocal profilService;
 
 	/**
 	 * Default constructor.
