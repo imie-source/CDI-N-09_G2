@@ -1,5 +1,5 @@
 ﻿body {
-	background: black url('images/fond.jpg') center 0 no-repeat !important;
+	background: black url('images/fond.jpg') center 0 no-repeat;
 }
 .header {
 	width: 100%;

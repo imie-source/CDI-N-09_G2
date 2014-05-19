@@ -1,3 +1,4 @@
+
 package org.imie.filter;
 
 import java.io.IOException;
@@ -23,41 +24,48 @@ import org.imie.service.profil.ProfilService;
 /**
  * Servlet Filter implementation class Filrouge_Authent
  */
-@WebFilter(dispatcherTypes = { DispatcherType.REQUEST}, urlPatterns = { "/*" })
-public class Filrouge_Authent implements Filter {
+@WebFilter(dispatcherTypes = { DispatcherType.REQUEST }, urlPatterns = { "/*" })
+public class Filrouge_Authent implements Filter
+{
 
-	@EJB(beanName="ProfileService")
+	@EJB(beanName = "ProfileService")
 	private ProfilService profilService;
-	
-    /**
-     * Default constructor. 
-     */
-    public Filrouge_Authent() {
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * Default constructor.
+	 */
+	public Filrouge_Authent()
+	{
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
 	 */
-	public void destroy() {
+	public void destroy()
+	{
 		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException
+	{
+
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-		
+
 		Boolean authentified = false;
 		Boolean authentifying = false;
 		Boolean resourceToScan = true;
 		Boolean requestInterupted = false;
-		
+
 		// pas besoin de scanner les css
-		if (httpServletRequest.getRequestURI().contains("css"))
+		if (httpServletRequest.getRequestURI().contains(".css")
+				|| httpServletRequest.getRequestURI().contains(".png")
+				|| httpServletRequest.getRequestURI().contains(".jpg"))
 		{
 			resourceToScan = false;
 		}
@@ -66,7 +74,8 @@ public class Filrouge_Authent implements Filter {
 		{
 			authentifying = true;
 			// On intercepte de force les mthodes post
-			if (httpServletRequest.getMethod().equals("POST") && httpServletRequest.getParameter("validate") != null)
+			if (httpServletRequest.getMethod().equals("POST")
+					&& httpServletRequest.getParameter("validate") != null)
 			{
 				String Login = request.getParameter("login");
 				String pass = request.getParameter("pass");
@@ -74,17 +83,25 @@ public class Filrouge_Authent implements Filter {
 				searchProfil.setIdentConnexion(Login);
 				searchProfil.setMdpConnexion(pass);
 				Profil authentProfil = null;
-				try {
-					authentProfil = profilService.verifAuthentification(searchProfil);
-				} catch (ServiceException e) {
+				try
+				{
+					authentProfil = profilService
+							.verifAuthentification(searchProfil);
+				}
+				catch (ServiceException e)
+				{
 					request.setAttribute("messageException", e.getMessage());
 				}
-				if (authentProfil != null) 
+				if (authentProfil != null)
 				{
-					httpServletRequest.getSession().setAttribute("authentifiedProfil", authentProfil);
+					httpServletRequest.getSession().setAttribute(
+							"authentifiedProfil", authentProfil);
 					httpServletResponse.sendRedirect("Accueil");
-				} else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("./WEB-INF/Login.jsp");
+				}
+				else
+				{
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("./WEB-INF/Login.jsp");
 					dispatcher.forward(request, response);
 				}
 				requestInterupted = true;
@@ -98,9 +115,12 @@ public class Filrouge_Authent implements Filter {
 		{
 			if (!authentified && !authentifying && resourceToScan)
 			{
-				String requestParam = httpServletRequest.getQueryString() != null ? "?".concat(httpServletRequest.getQueryString()):"";
-				httpServletRequest.getSession().setAttribute("originURL", 
-						httpServletRequest.getRequestURL().toString().concat(requestParam));
+				String requestParam = httpServletRequest.getQueryString() != null ? "?"
+						.concat(httpServletRequest.getQueryString()) : "";
+				httpServletRequest.getSession().setAttribute(
+						"originURL",
+						httpServletRequest.getRequestURL().toString()
+								.concat(requestParam));
 				httpServletResponse.sendRedirect("/FilrougeIHM/Login");
 			}
 			else
@@ -113,7 +133,8 @@ public class Filrouge_Authent implements Filter {
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
-	public void init(FilterConfig fConfig) throws ServletException {
+	public void init(FilterConfig fConfig) throws ServletException
+	{
 		// TODO Auto-generated method stub
 	}
 

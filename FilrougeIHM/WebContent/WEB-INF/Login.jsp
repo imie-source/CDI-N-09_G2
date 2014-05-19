@@ -14,7 +14,7 @@
 
 <div class="div_global">
 	<div class="header">
-		<img alt="" src="images/logo_imie2.png" />
+		<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	</div>
 	<div class="contenu">
 		<h2>Page d'identification</h2>
