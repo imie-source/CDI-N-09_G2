@@ -73,15 +73,17 @@ public class Filrouge_Authent implements Filter
 		if (httpServletRequest.getRequestURI().contains("Login"))
 		{
 			authentifying = true;
-			// On intercepte de force les mthodes post
+			// On intercepte de force les mthodes post et si on a validé
 			if (httpServletRequest.getMethod().equals("POST")
 					&& httpServletRequest.getParameter("validate") != null)
 			{
+				// On récupère les infos de connexion
 				String Login = request.getParameter("login");
 				String pass = request.getParameter("pass");
 				Profil searchProfil = new Profil();
 				searchProfil.setIdentConnexion(Login);
 				searchProfil.setMdpConnexion(pass);
+				// On teste si le profil est dans la base
 				Profil authentProfil = null;
 				try
 				{
@@ -92,25 +94,35 @@ public class Filrouge_Authent implements Filter
 				{
 					request.setAttribute("messageException", e.getMessage());
 				}
+				// Si l'authentification est correcte on set le profil en
+				// session
 				if (authentProfil != null)
 				{
 					httpServletRequest.getSession().setAttribute(
 							"authentifiedProfil", authentProfil);
 					httpServletResponse.sendRedirect("Accueil");
 				}
+				// Sinon on retourne sur la page de Login
 				else
 				{
 					RequestDispatcher dispatcher = request
 							.getRequestDispatcher("./WEB-INF/Login.jsp");
 					dispatcher.forward(request, response);
 				}
+				// On a interrompu la requête pour que l'utilisateur se logue
 				requestInterupted = true;
 			}
 		}
+		// Si il y a un profil en session c'est que l'on est logué
 		if (httpServletRequest.getSession().getAttribute("authentifiedProfil") != null)
 		{
 			authentified = true;
 		}
+		// Si on a pas onterrompu la requête et que l'on est pas en
+		// authentification
+		// ni authentifié et que c'est une ressource a scanner alors on redirige
+		// vers
+		// la page de login
 		if (!requestInterupted)
 		{
 			if (!authentified && !authentifying && resourceToScan)
