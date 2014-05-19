@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header class="header">
 	<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	<div class="notification">
@@ -14,7 +15,7 @@
 	<div class="menu">
 		<div id="cssmenu">
 			<ul>
-				<li><a href="accueil.html"><span>Accueil</span></a></li>
+				<li><a href="/FilrougeIHM/Accueil"><span>Accueil</span></a></li>
 				<li><a href="projets.html"><span>Projets</span></a></li>
 				<li><a href="etudiants.html"><span>Etudiants</span></a></li>
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
@@ -33,7 +34,7 @@
 					<li class="last"><a href="participant.html"><span>Participant</span></a></li>
 				</ul>
 				</li>
-				<li><a href="profil.html"><span>Mon Profil</span></a></li>
+				<li><a href="/FilrougeIHM/Profil"><span>Mon Profil</span></a></li>
 				<li class="last"><a href="deconnexion.html"><span>Déconnexion</span></a></li>
 			</ul>
 		</div>
