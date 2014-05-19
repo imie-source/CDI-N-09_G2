@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,8 +18,10 @@
 	<div class="header">
 		<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 		<div class="notification">
-			<img alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" /><label class="label_log">Ipkiss 
-			Stanley</label><br />
+			<img alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" />
+			<label class="label_log">
+			<c:out value="${authentifiedProfil.nom }"></c:out> - <c:out value="${authentifiedProfil.prenom }"></c:out> 
+			</label><br />
 			<img alt="" src="/FilrougeIHM/style/images/icons/letterv.png" width="40"><div class="compt_notif">
 				3</div>
 		</div>

@@ -15,12 +15,6 @@
 <div class="div_global">
 	<div class="header">
 		<img alt="" src="images/logo_imie2.png" />
-		<div class="notification">
-			<img alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" /><label class="label_log">Ipkiss 
-			Stanley</label><br />
-			<img alt="" src="/FilrougeIHM/style/images/icons/letterv.png" width="40"><div class="compt_notif">
-				3</div>
-		</div>
 	</div>
 	<div class="contenu">
 		<h2>Page d'identification</h2>

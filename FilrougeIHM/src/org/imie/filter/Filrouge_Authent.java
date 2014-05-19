@@ -81,7 +81,7 @@ public class Filrouge_Authent implements Filter {
 				}
 				if (authentProfil != null) 
 				{
-					httpServletRequest.getSession().setAttribute("AuthentifiedProfil", authentProfil);
+					httpServletRequest.getSession().setAttribute("authentifiedProfil", authentProfil);
 					httpServletResponse.sendRedirect("Accueil");
 				} else {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("./WEB-INF/Login.jsp");
@@ -90,7 +90,7 @@ public class Filrouge_Authent implements Filter {
 				requestInterupted = true;
 			}
 		}
-		if (httpServletRequest.getSession().getAttribute("AuthentifiedProfil") != null)
+		if (httpServletRequest.getSession().getAttribute("authentifiedProfil") != null)
 		{
 			authentified = true;
 		}
