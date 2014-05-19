@@ -1,26 +1,18 @@
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="/FilrougeIHM/style/style.css" rel="stylesheet" />
 <link href="/FilrougeIHM/style/style_menu.css" rel="stylesheet" />
 <title>Profil</title>
 </head>
-
-
 <body>
-	
-	
-	<%@include file="Header.jsp" %>
-
-
+<div class="div_global">
+<%@include file="Header.jsp" %>
 	<div class="contenu">
 		<h2>Mon profil</h2>
 		<div class="div_profil">
@@ -190,7 +182,7 @@
 		</div>
 	</div>
 
-
+</div>
 
 </body>
 </html>

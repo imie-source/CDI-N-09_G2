@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+</div><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header class="header">
 	<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	<div class="notification">
