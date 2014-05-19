@@ -1,3 +1,7 @@
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,15 +10,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="/FilrougeIHM/style/style.css" rel="stylesheet" />
+<link href="/FilrougeIHM/style/style_menu.css" rel="stylesheet" />
 <title>Profil</title>
 </head>
+
+
 <body>
+	
+	
+	<%@include file="Header.jsp" %>
+
 
 	<div class="contenu">
 		<h2>Mon profil</h2>
 		<div class="div_profil">
 			<div class="div_photo">
-				<img alt="" class="img_photo" src="images/the-mask.jpg" width="130px" /></div>
+				<img alt="" class="img_photo" src="/FilrougeIHM/style/images/the-mask.jpg" width="130px" />
+			</div>
 				
 				
 			<div class="div_contenu_profil">
@@ -77,12 +89,11 @@
 					<label> non</label>
 				</div>
 
-
-
 			</div>
 			
 			<br />
 			<br />
+			
 			
 			<div id="shadow" class="shadow">
 				<label class="label_close" onclick="cache_shadow()">X</label>
@@ -178,7 +189,6 @@
 			
 		</div>
 	</div>
-
 
 
 
