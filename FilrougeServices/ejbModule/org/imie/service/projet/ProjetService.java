@@ -4,7 +4,6 @@ package org.imie.service.projet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -23,7 +22,6 @@ import model.Projet;
  * Session Bean implementation class ProjetService
  */
 @Stateless(name = "ProjetService")
-@LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ProjetService implements ProjetServiceRemote, ProjetServiceLocal
 {

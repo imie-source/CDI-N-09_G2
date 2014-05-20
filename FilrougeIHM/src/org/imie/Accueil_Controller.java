@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.EJB;
+import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +25,7 @@ public class Accueil_Controller extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
-	@EJB(beanName = "ProjetService")
+	@Resource(name = "java:module/ProjetService!org.imie.service.projet.ProjetServiceLocal")
 	private ProjetServiceLocal projetService;
 
 	/**

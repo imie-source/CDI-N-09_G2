@@ -4,7 +4,6 @@ package org.imie.service.profil;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -25,7 +24,6 @@ import org.imie.service.exception.ServiceException;
  * Session Bean implementation class ProfilService
  */
 @Stateless(name = "ProfilService")
-@LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ProfilService implements ProfilServiceRemote, ProfilServiceLocal
 {

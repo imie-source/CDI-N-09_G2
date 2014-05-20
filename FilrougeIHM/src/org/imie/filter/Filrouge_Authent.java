@@ -3,7 +3,7 @@ package org.imie.filter;
 
 import java.io.IOException;
 
-import javax.ejb.EJB;
+import javax.annotation.Resource;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -28,7 +28,8 @@ import org.imie.service.profil.ProfilServiceLocal;
 public class Filrouge_Authent implements Filter
 {
 
-	@EJB(beanName = "ProfilService")
+	// @EJB(beanName = "ProfilService")
+	@Resource(name = "java:module/ProfilService!org.imie.service.profil.ProfilServiceLocal")
 	private ProfilServiceLocal profilService;
 
 	/**

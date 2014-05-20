@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,8 +21,8 @@ import model.Competence;
 /**
  * Session Bean implementation class ServiceFilRouge
  */
-@Stateless
-@LocalBean
+@Stateless(name = "CompetenceService")
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class CompetenceService implements CompetenceServiceRemote,
 		CompetenceServiceLocal
 {
@@ -38,56 +39,62 @@ public class CompetenceService implements CompetenceServiceRemote,
 	}
 
 	@Override
-	public List<Competence> rechercherCompetence(Competence competence) 
+	public List<Competence> rechercherCompetence(Competence competence)
 	{
 		// Permet de fabriquer la requete morceau par morceau
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		
+
 		// Contient les predicates
-		CriteriaQuery<Competence> criteriaQuery = criteriaBuilder.createQuery(Competence.class);
-		
+		CriteriaQuery<Competence> criteriaQuery = criteriaBuilder
+				.createQuery(Competence.class);
+
 		// Entite concernée
 		Root<Competence> rootCompetence = criteriaQuery.from(Competence.class);
 		List<Predicate> predicates = new ArrayList<Predicate>();
-		
+
 		// Filtre sur l'id
 		if (competence.getCompId() != null)
 		{
-			predicates.add(criteriaBuilder.equal(
-					rootCompetence.<Integer>get("id"),competence.getCompId()));
+			predicates
+					.add(criteriaBuilder.equal(
+							rootCompetence.<Integer> get("id"),
+							competence.getCompId()));
 		}
 		// Filtre sur l'intitulé
 		if (competence.getCompIntitule() != null)
 		{
 			predicates.add(criteriaBuilder.like(
-					rootCompetence.<String>get("comp_intitule"),competence.getCompIntitule()));
+					rootCompetence.<String> get("comp_intitule"),
+					competence.getCompIntitule()));
 		}
 		// Filtre sur la validité
 		if (competence.getCompValide() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
-					rootCompetence.<Boolean>get("comp_valide"),competence.getCompValide()));
+					rootCompetence.<Boolean> get("comp_valide"),
+					competence.getCompValide()));
 		}
-		
+
 		// Ajout des critères de recherche fabriqués si dessus
 		criteriaQuery.where((Predicate[]) predicates
 				.toArray(new Predicate[] {}));
-		
+
 		// Execution de la requete
-		List<Competence> result = entityManager.createQuery(criteriaQuery).getResultList();
-		
+		List<Competence> result = entityManager.createQuery(criteriaQuery)
+				.getResultList();
+
 		return result;
 	}
 
 	@Override
-	public Competence creerCompetence(Competence competence) 
+	public Competence creerCompetence(Competence competence)
 	{
 		entityManager.persist(competence);
 		return competence;
 	}
 
 	@Override
-	public Competence mettreAJourCompetence(Competence competence) 
+	public Competence mettreAJourCompetence(Competence competence)
 	{
 		Competence result = new Competence();
 		if (competence.getCompId() != null)
@@ -95,11 +102,11 @@ public class CompetenceService implements CompetenceServiceRemote,
 			result = entityManager.merge(competence);
 		}
 		return result;
-		
+
 	}
 
 	@Override
-	public void supprimerCompetence(Competence competence) 
+	public void supprimerCompetence(Competence competence)
 	{
 		if (competence.getCompId() != null)
 		{
@@ -171,40 +178,39 @@ public class CompetenceService implements CompetenceServiceRemote,
 			}
 		}
 	}
-	
-//	@Override
-//	public void test()
-//	{
-//		// int id = 1;
-//		// Profil profil = entityManager.find(Profil.class, id);
-//		// if (profil == null) {
-//		// System.out.println("Le profil " + id + "n'existe pas");
-//		// } else {
-//		// System.out.format("%d %s %s%n", profil.getPrfId(),
-//		// profil.getPrfNom(), profil.getPrfPrenom());
-//		// }
-//		Query query = entityManager.createQuery("select p from Profil p"); // OK
-//		@SuppressWarnings("unchecked")
-//		List<Profil> result = (List<Profil>) query.getResultList();
-//		for (Profil profil : result)
-//		{
-//			System.out.format("%d %s %s (%d %s)", profil.getId(), profil
-//					.getNom(), profil.getPrenom(), profil.getDroit()
-//					.getDroitId(), profil.getDroit().getDroitIntitule());
-//			if (profil.getPromotion() == null)
-//			{
-//				System.out.format(" ce profil n'a pas de promotion%n");
-//
-//			}
-//			else
-//			{
-//				System.out.format(" (%d %s %s)%n", profil.getPromotion()
-//						.getPrmId(), profil.getPromotion().getPrmIntitule(),
-//						profil.getPromotion().getPrmLieu());
-//			}
-//
-//		}
-//	}
+
+	// @Override
+	// public void test()
+	// {
+	// // int id = 1;
+	// // Profil profil = entityManager.find(Profil.class, id);
+	// // if (profil == null) {
+	// // System.out.println("Le profil " + id + "n'existe pas");
+	// // } else {
+	// // System.out.format("%d %s %s%n", profil.getPrfId(),
+	// // profil.getPrfNom(), profil.getPrfPrenom());
+	// // }
+	// Query query = entityManager.createQuery("select p from Profil p"); // OK
+	// @SuppressWarnings("unchecked")
+	// List<Profil> result = (List<Profil>) query.getResultList();
+	// for (Profil profil : result)
+	// {
+	// System.out.format("%d %s %s (%d %s)", profil.getId(), profil
+	// .getNom(), profil.getPrenom(), profil.getDroit()
+	// .getDroitId(), profil.getDroit().getDroitIntitule());
+	// if (profil.getPromotion() == null)
+	// {
+	// System.out.format(" ce profil n'a pas de promotion%n");
+	//
+	// }
+	// else
+	// {
+	// System.out.format(" (%d %s %s)%n", profil.getPromotion()
+	// .getPrmId(), profil.getPromotion().getPrmIntitule(),
+	// profil.getPromotion().getPrmLieu());
+	// }
+	//
+	// }
+	// }
 
 }
-
