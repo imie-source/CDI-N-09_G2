@@ -25,6 +25,20 @@
 	color: #268e00;
 	background-color: #333333;
 }
+.table {
+	text-align: center;
+	color: #268e00;
+	width: 48%;
+	float: left
+}
+.detail_projet {
+	border: medium darkgreen ridge;
+	text-align: center;
+	color: #268e00;
+	background-color: #333333;
+	width: 48%;
+	float: left
+}
 .table_projets th {
 	color: black;
 	background-color: #268e00;
@@ -98,7 +112,15 @@ h2 {
 	background-color: black;
 	color: #268e00;
 }
-.fieldset_profil legend {
+.fieldset_projet legend {
+	color: #6b6b6b;
+}
+.fieldset_profil {
+	border-color: #268e00;
+	background-color: black;
+	color: #268e00;
+}
+.fieldset_projet legend {
 	color: #6b6b6b;
 }
 .table_comp_profil td {

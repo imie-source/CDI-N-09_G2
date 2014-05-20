@@ -16,7 +16,7 @@
 		<div id="cssmenu">
 			<ul>
 				<li><a href="/FilrougeIHM/Accueil"><span>Accueil</span></a></li>
-				<li><a href="projets.html"><span>Projets</span></a></li>
+				<li><a href="/FilrougeIHM/Projets"><span>Projets</span></a></li>
 				<li><a href="etudiants.html"><span>Etudiants</span></a></li>
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
