@@ -2,7 +2,6 @@
 package org.imie;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -44,12 +43,16 @@ public class Profil_Controller extends HttpServlet
 			HttpServletResponse response) throws ServletException, IOException
 	{
 
-		List<Profil> profils = profilService.rechercherProfil(new Profil());
-		request.setAttribute("profils", profils);
-		if (profils.size() > 0)
-		{
-			request.setAttribute("profilAAfficher", profils.get(0));
-		}
+		Profil profilAAfficher = (Profil) request.getSession().getAttribute(
+				"authentifiedProfil");
+
+		request.setAttribute("profilAAfficher", profilAAfficher);
+		// List<Profil> profils = profilService.rechercherProfil(new Profil());
+		// request.setAttribute("profils", profils);
+		// if (profils.size() > 0)
+		// {
+		// request.setAttribute("profilAAfficher", profils.get(0));
+		// }
 
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/WEB-INF/Profil.jsp");
