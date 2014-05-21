@@ -76,11 +76,24 @@
 				</div>
 				
 				<div class="row_profil">
+				
 					<label class="label_profil">Disponibilité : </label>
-					<input checked="checked" name="Radio1" type="radio" />
-					<label> oui</label>
-					<input name="Radio1" type="radio" />
-					<label> non</label>
+					
+					<c:set var="disponibleOui" value="" />
+					<c:set var="disponibleNon" value="checked" />
+					
+					<c:if test="${profilAAfficher.disponibilite}">
+						<c:set var="disponibleOui" value="checked" />
+						<c:set var="disponibleNon" value="" />
+					</c:if>
+					
+					<input checked='<c:out value="${disponibleOui}"></c:out>' 
+							name="radioDisponibilite" type="radio" />
+					<label>Oui</label>
+					<input checked='<c:out value="${disponibleNon}"></c:out>' 
+							name="radioDisponibilite" type="radio" />
+					<label>Non</label>
+					
 				</div>
 
 			</div>
