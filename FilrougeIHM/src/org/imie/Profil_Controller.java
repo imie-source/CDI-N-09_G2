@@ -64,6 +64,9 @@ public class Profil_Controller extends HttpServlet
 			if (!result.isEmpty())
 			{
 				profilAAfficher = result.get(0);
+				String titre = profilAAfficher.getPrenom().concat(" ")
+						.concat(profilAAfficher.getNom());
+				request.setAttribute("titre", titre);
 			}
 			else
 			{

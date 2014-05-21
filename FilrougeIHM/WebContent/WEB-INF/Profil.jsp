@@ -14,7 +14,14 @@
 <div class="div_global">
 <%@include file="Header.jsp" %>
 	<div class="contenu">
-		<h2>Mon profil</h2>
+	
+	<c:set var="titrePage" value="Mon Profil" />
+	<c:if test="${titre != null}">
+		<c:set var="titrePage" value="${titre}" />
+	</c:if>
+
+
+		<h2> <c:out value="${titrePage}"></c:out> </h2>
 		
 		<div class="div_profil">
 		
