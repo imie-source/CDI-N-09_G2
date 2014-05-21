@@ -32,10 +32,8 @@
 	float: left
 }
 .detail_projet {
-	border: medium darkgreen ridge;
 	text-align: center;
 	color: #268e00;
-	background-color: #333333;
 	width: 48%;
 	float: left
 }
@@ -46,6 +44,12 @@
 h2 {
 	background-image: linear-gradient(90deg, #268e00, #333333);
 	text-align: left;
+}
+a {
+	color: #268e00;
+}
+a:VISITED {
+	color: #A64000;
 }
 .input {
 	background-color: #268e00;;
@@ -112,13 +116,16 @@ h2 {
 	background-color: black;
 	color: #268e00;
 }
-.fieldset_projet legend {
+.fieldset_profil legend {
 	color: #6b6b6b;
 }
-.fieldset_profil {
+.fieldset_projet {
+	border: medium #268e00 ridge;
+	border-radius: 10px;
 	border-color: #268e00;
 	background-color: black;
 	color: #268e00;
+	margin: 5px;
 }
 .fieldset_projet legend {
 	color: #6b6b6b;

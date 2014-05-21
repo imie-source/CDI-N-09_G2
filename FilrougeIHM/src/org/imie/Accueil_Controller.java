@@ -62,13 +62,15 @@ public class Accueil_Controller extends HttpServlet
 	{
 		List<Projet> projets = projetService.rechercherProjet(new Projet());
 		List<Projet> projetsAffiches = new ArrayList<Projet>();
+		// on parcours la liste à l'envers pour afficher que les 6 derniers
+		// projets
 		for (int i = projets.size() - 1; i > projets.size() - 7 && i >= 0; i--)
 		{
 			projetsAffiches.add(projets.get(i));
 		}
 		request.setAttribute("projets", projetsAffiches);
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("./WEB-INF/Accueil.jsp");
+				.getRequestDispatcher("/WEB-INF/Accueil.jsp");
 		dispatcher.forward(request, response);
 	}
 
