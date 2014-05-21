@@ -7,6 +7,7 @@
 }
 .contenu {
 	min-height: 300px;
+	width: 100%;
 }
 .footer {
 	/*position: absolute;*/
@@ -20,26 +21,38 @@
 	color: #268e00;
 }
 .table_projets {
+	margin: auto;
 	border: medium darkgreen ridge;
 	text-align: center;
 	color: #268e00;
 	background-color: #333333;
+	border-collapse:collapse;
+}
+.table_projets td{
+	border: medium darkgreen ridge;
+	
+}
+.table_projets th{
+	border: medium darkgreen ridge;
+	color: black;
+	background-color: #268e00;
 }
 .table {
 	text-align: center;
 	color: #268e00;
 	width: 48%;
-	float: left
+	float: left;
 }
 .detail_projet {
 	text-align: center;
 	color: #268e00;
-	width: 80%;
-	margin-left: 10%
+	width: 48%;
+	float: left;
 }
-.table_projets th {
-	color: black;
-	background-color: #268e00;
+.table_projets2 {
+	border: medium darkgreen ridge;
+	text-align: center;
+	color: #268e00;
 }
 h2 {
 	background-image: linear-gradient(90deg, #268e00, #333333);
@@ -56,11 +69,6 @@ a:VISITED {
 }
 .input {
 	background-color: #268e00;;
-}
-.table_projets2 {
-	border: medium darkgreen ridge;
-	text-align: center;
-	color: #268e00;
 }
 .menu {
 	text-align: center;

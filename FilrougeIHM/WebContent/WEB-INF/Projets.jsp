@@ -16,10 +16,10 @@
 
 <div class="div_global">
 	<%@include file="Header.jsp" %>
-	<div class="contenu">
+	<div class="contenu" >
 		<h2>Projets</h2>
 		<div class="table">
-			<table align="center" border="2" class="table_projets">
+			<table class="table_projets">
 				<thead>
 					<tr>
 						<th>Nom du projet</th>
