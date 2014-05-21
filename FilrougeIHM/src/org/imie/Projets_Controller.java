@@ -67,7 +67,7 @@ public class Projets_Controller extends HttpServlet
 			request.setAttribute("projetSelectionne", projets.get(0));
 		}
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("./WEB-INF/Projets.jsp");
+				.getRequestDispatcher("/WEB-INF/Projets.jsp");
 		dispatcher.forward(request, response);
 	}
 

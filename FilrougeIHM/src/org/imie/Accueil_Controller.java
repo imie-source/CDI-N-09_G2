@@ -62,13 +62,9 @@ public class Accueil_Controller extends HttpServlet
 	{
 		List<Projet> projets = projetService.rechercherProjet(new Projet());
 		List<Projet> projetsAffiches = new ArrayList<Projet>();
-		for (int i = 1; i < 7; i++)
+		for (int i = 1; i < 7 && i <= projets.size(); i++)
 		{
-			if (projets.get(i) != null)
-			{
-
-				projetsAffiches.add(projets.get(projets.size() - i));
-			}
+			projetsAffiches.add(projets.get(projets.size() - i));
 		}
 		request.setAttribute("projets", projetsAffiches);
 		RequestDispatcher dispatcher = request

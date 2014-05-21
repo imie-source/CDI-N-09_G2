@@ -86,8 +86,7 @@
 			</fieldset>
 		</div>
 	</div>
-	<div class="footer">
-		Copyright 2014 © Team S.P.A.R.K Tous droits réservés </div>
+	<div class="footer">Copyright 2014 © Team S.P.A.R.K Tous droits réservés </div>
 </div>
 
 </body>
