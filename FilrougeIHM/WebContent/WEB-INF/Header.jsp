@@ -21,7 +21,7 @@
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
 					<li><a href="/FilrougeIHM/Creer_projet"><span>Créer un projet</span></a></li>
-					<li><a href="/FilrougeIHM/EnConstruction"><span>Gérer les compétences</span></a></li>
+					<li><a href="/FilrougeIHM/Competences"><span>Gérer les compétences</span></a></li>
 					<li><a href="/FilrougeIHM/EnConstruction"><span>Importer un fichier 
 					Excel</span></a></li>
 					<li class="last"><a href="/FilrougeIHM/Gerer_profils"><span>Gérer 
