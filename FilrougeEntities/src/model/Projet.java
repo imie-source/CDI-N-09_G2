@@ -29,30 +29,30 @@ public class Projet implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "proj_id", unique = true, nullable = false)
-	private Integer projId;
+	private Integer id;
 
 	@Column(name = "proj_avancement", length = 50)
-	private String projAvancement;
+	private String avancement;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "proj_datedebut")
-	private Date projDatedebut;
+	private Date datedebut;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "proj_datedefin")
-	private Date projDatedefin;
+	private Date datedefin;
 
 	@Column(name = "proj_description", length = 1000)
-	private String projDescription;
+	private String description;
 
 	@Column(name = "proj_nom", nullable = false, length = 25)
-	private String projNom;
+	private String nom;
 
 	@Column(name = "proj_wiki_cdp", length = 1000)
-	private String projWikiCdp;
+	private String wikiCdp;
 
 	@Column(name = "proj_wiki_membre", length = 1000)
-	private String projWikiMembre;
+	private String wikiMembre;
 
 	// uni-directional many-to-one association to Profil
 	@ManyToOne
@@ -65,82 +65,82 @@ public class Projet implements Serializable
 
 	public Integer getProjId()
 	{
-		return this.projId;
+		return this.id;
 	}
 
 	public void setProjId(Integer projId)
 	{
-		this.projId = projId;
+		this.id = projId;
 	}
 
 	public String getProjAvancement()
 	{
-		return this.projAvancement;
+		return this.avancement;
 	}
 
 	public void setProjAvancement(String projAvancement)
 	{
-		this.projAvancement = projAvancement;
+		this.avancement = projAvancement;
 	}
 
 	public Date getProjDatedebut()
 	{
-		return this.projDatedebut;
+		return this.datedebut;
 	}
 
 	public void setProjDatedebut(Date projDatedebut)
 	{
-		this.projDatedebut = projDatedebut;
+		this.datedebut = projDatedebut;
 	}
 
 	public Date getProjDatedefin()
 	{
-		return this.projDatedefin;
+		return this.datedefin;
 	}
 
 	public void setProjDatedefin(Date projDatedefin)
 	{
-		this.projDatedefin = projDatedefin;
+		this.datedefin = projDatedefin;
 	}
 
 	public String getProjDescription()
 	{
-		return this.projDescription;
+		return this.description;
 	}
 
 	public void setProjDescription(String projDescription)
 	{
-		this.projDescription = projDescription;
+		this.description = projDescription;
 	}
 
 	public String getProjNom()
 	{
-		return this.projNom;
+		return this.nom;
 	}
 
 	public void setProjNom(String projNom)
 	{
-		this.projNom = projNom;
+		this.nom = projNom;
 	}
 
 	public String getProjWikiCdp()
 	{
-		return this.projWikiCdp;
+		return this.wikiCdp;
 	}
 
 	public void setProjWikiCdp(String projWikiCdp)
 	{
-		this.projWikiCdp = projWikiCdp;
+		this.wikiCdp = projWikiCdp;
 	}
 
 	public String getProjWikiMembre()
 	{
-		return this.projWikiMembre;
+		return this.wikiMembre;
 	}
 
 	public void setProjWikiMembre(String projWikiMembre)
 	{
-		this.projWikiMembre = projWikiMembre;
+		this.wikiMembre = projWikiMembre;
 	}
 
 	public Profil getProfil()

@@ -3,6 +3,8 @@ package org.imie;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -59,12 +61,27 @@ public class Projets_Controller extends HttpServlet
 	private void buildIHM(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
+		Projet projetSelectionne = new Projet();
 		List<Projet> projets = projetService.rechercherProjet(new Projet());
 		request.removeAttribute("projets");
 		request.setAttribute("projets", projets);
+		// Déclaration du pattern de consultation d'un projet
+		Pattern pattern = Pattern.compile(".*/Projets/([0-9]*)");
+		Matcher matcher = pattern.matcher(request.getRequestURL());
+		// Si il y a un id de projet dans l'id
+		if (matcher.find())
+		{
+			projetSelectionne.setProjId(Integer.valueOf(matcher.group(1)));
+			List<Projet> projetTrouve = projetService
+					.rechercherProjet(projetSelectionne);
+			if (projetTrouve.size() > 0)
+			{
+				projetSelectionne = projetTrouve.get(0);
+			}
+		}
 		if (projets.size() > 0)
 		{
-			request.setAttribute("projetSelectionne", projets.get(0));
+			request.setAttribute("projetSelectionne", projetSelectionne);
 		}
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/WEB-INF/Projets.jsp");

@@ -2,7 +2,7 @@
 <header class="header">
 	<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	<div class="notification">
-		<img alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" />
+		<a href="/FilrougeIHM/Deconnexion"><img class="bDeconnexion" alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" /></a>
 		<label class="label_log">
 		<c:out value="${authentifiedProfil.nom }"></c:out> - <c:out value="${authentifiedProfil.prenom }"></c:out> 
 		</label><br />
@@ -17,7 +17,7 @@
 			<ul>
 				<li><a href="/FilrougeIHM/Accueil"><span>Accueil</span></a></li>
 				<li><a href="/FilrougeIHM/Projets"><span>Projets</span></a></li>
-				<li><a href="etudiants.html"><span>Etudiants</span></a></li>
+				<li><a href="/FilrougeIHM/Etudiants"><span>Etudiants</span></a></li>
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
 					<li><a href="/FilrougeIHM/Creer_projet"><span>Créer un projet</span></a></li>
