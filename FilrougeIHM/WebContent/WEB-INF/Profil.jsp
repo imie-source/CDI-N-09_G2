@@ -21,7 +21,8 @@
 		
 		<form method="POST">
 		
-		
+			<input name="id" value="${profilAAfficher.id}" hidden="true"/>
+			
 			<div class="div_photo">
 				<img alt="" class="img_photo" src="/FilrougeIHM/style/images/the-mask.jpg" width="130px" />
 			</div>
@@ -123,9 +124,7 @@
 			
 			<fieldset class="fieldset_profil">
 			<legend>Information Complémentaire</legend>
-				<textarea rows="12" cols="30" name="infos">
-					<c:out value="${profilAAfficher.infos}"></c:out>
-				</textarea>
+				<textarea rows="12" cols="30" name="infos"><c:out value="${profilAAfficher.infos}"></c:out></textarea>
 			</fieldset>
 			
 			
@@ -215,7 +214,7 @@
 			</fieldset>
 		
 		
-			<input name="submit" type="submit" value="Enregistrer les modifications" />
+			<input type="submit" value="Enregistrer les modifications" />
 		</form>
 			
 		</div>
