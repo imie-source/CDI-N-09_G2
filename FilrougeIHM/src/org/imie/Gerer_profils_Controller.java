@@ -81,15 +81,11 @@ public class Gerer_profils_Controller extends HttpServlet
 					.rechercherProfil(profilSearched);
 			if (profils.size() > 0)
 			{
-				request.setAttribute("profils", profils);
-				request.setAttribute("profilAAfficher", profils.get(0));
 
-				// response.sendRedirect(arg0);
-
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/WEB-INF/Profil.jsp");
-				dispatcher.forward(request, response);
 				erreur = false;
+				response.sendRedirect("/FilrougeIHM/Profil/"
+						+ matcherUpdate.group(1));
+
 			}
 		}
 		else if (matcherDelete.find())

@@ -48,10 +48,12 @@ public class Profil_Controller extends HttpServlet
 
 		StringBuffer url = request.getRequestURL();
 		// Déclaration du pattern de consultation d'un projet
-		Pattern pattern = Pattern.compile(".*/Projets/([0-9]+)");
+		Pattern pattern = Pattern.compile(".*/Profil/([0-9]+)");
 		Matcher matcher = pattern.matcher(url);
-		// Si il y a un id de projet dans l'id
+
 		Profil profilAAfficher = new Profil();
+
+		// Si il y a un id de projet dans l'id
 		if (matcher.find())
 		{
 			Integer id = Integer.valueOf(matcher.group(1));
