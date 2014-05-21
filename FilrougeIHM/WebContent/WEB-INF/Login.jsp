@@ -19,14 +19,14 @@
 	<div class="contenu">
 		<h2>Page d'identification</h2>
 		<form method="post">
-			<table align="center" border="2" class="table_projets2">
+			<table class="table_projets2">
 				<tr>
 					<th>Identifiant :</th>
 					<td><input name="login" type="text" /></td>
 				</tr>
 				<tr>
 					<th>Mot de passe :</th>
-					<td><input name="pass" type="text" /></td>
+					<td><input name="pass" type="password" /></td>
 				</tr>
 				<tr>
 					<td>
