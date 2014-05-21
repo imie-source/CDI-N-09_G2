@@ -21,8 +21,8 @@
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
 					<li><a href="/FilrougeIHM/Creer_projet"><span>Créer un projet</span></a></li>
-					<li><a href="gerer_competence.html"><span>Gérer les compétences</span></a></li>
-					<li><a href="importer_fichier.html"><span>Importer un fichier 
+					<li><a href="/FilrougeIHM/EnConstruction"><span>Gérer les compétences</span></a></li>
+					<li><a href="/FilrougeIHM/EnConstruction"><span>Importer un fichier 
 					Excel</span></a></li>
 					<li class="last"><a href="/FilrougeIHM/Gerer_profils"><span>Gérer 
 					les profils</span></a></li>
@@ -30,8 +30,8 @@
 				</li>
 				<li class="has-sub"><a href="#"><span>Mes Projets</span></a>
 				<ul>
-					<li><a href="chef_de_projet.html"><span>Chef de projet</span></a></li>
-					<li class="last"><a href="participant.html"><span>Participant</span></a></li>
+					<li><a href="/FilrougeIHM/EnConstruction"><span>Chef de projet</span></a></li>
+					<li class="last"><a href="/FilrougeIHM/EnConstruction"><span>Participant</span></a></li>
 				</ul>
 				</li>
 				<li><a href="/FilrougeIHM/Profil"><span>Mon Profil</span></a></li>
