@@ -2,7 +2,7 @@
 <header class="header">
 	<img alt="" src="/FilrougeIHM/style/images/logo_imie2.png" />
 	<div class="notification">
-		<img alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" />
+		<a href="/FilrougeIHM/Deconnexion"><img class="bDeconnexion" alt="" src="/FilrougeIHM/style/images/icons/power.png" width="30px" /></a>
 		<label class="label_log">
 		<c:out value="${authentifiedProfil.nom }"></c:out> - <c:out value="${authentifiedProfil.prenom }"></c:out> 
 		</label><br />
