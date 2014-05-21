@@ -63,7 +63,19 @@ public class Profil_Controller extends HttpServlet
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-	}
+		Profil profilUpdate = (Profil) request.getAttribute("profilAAfficher");
 
+		String infos = (String) request.getAttribute("infos");
+		if (infos != null)
+		{
+			profilUpdate.setInfos(infos);
+		}
+
+		profilUpdate = profilService.mettreAJourProfil(profilUpdate);
+		request.setAttribute("profilAAfficher", profilUpdate);
+
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("/WEB-INF/Profil.jsp");
+		dispatcher.forward(request, response);
+	}
 }

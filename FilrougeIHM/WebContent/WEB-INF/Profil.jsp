@@ -15,11 +15,16 @@
 <%@include file="Header.jsp" %>
 	<div class="contenu">
 		<h2>Mon profil</h2>
+		
 		<div class="div_profil">
+		
+		
+		<form method="POST">
+		
+		
 			<div class="div_photo">
 				<img alt="" class="img_photo" src="/FilrougeIHM/style/images/the-mask.jpg" width="130px" />
 			</div>
-				
 				
 			<div class="div_contenu_profil">
 	
@@ -67,12 +72,30 @@
 			
 				<div class="row_profil">
 					<label class="label_profil">Promotion : </label>
-					<label>TODO PROMO</label>
+					<label>
+						<c:choose>
+							<c:when test="${profilAAfficher.promotion == null}">
+								<c:out value="Non spécifiée"></c:out>
+							</c:when>
+							<c:otherwise>
+								<c:out value="${profilAAfficher.promotion.prmIntitule}"></c:out>
+							</c:otherwise>
+						</c:choose>
+					</label>
 				</div>
 				
 				<div class="row_profil">
 					<label class="label_profil">Lieu de formation :</label>
-					<label>TODO ville</label>
+					<label>
+						<c:choose>
+							<c:when test="${profilAAfficher.promotion == null}">
+								<c:out value="Non spécifiée"></c:out>
+							</c:when>
+							<c:otherwise>
+								<c:out value="${profilAAfficher.promotion.prmLieu}"></c:out>
+							</c:otherwise>
+						</c:choose>
+					</label>
 				</div>
 				
 				<div class="row_profil">
@@ -98,60 +121,59 @@
 
 			</div>
 			
-			<br />
-			<br />
-			
-			
-			<div id="shadow" class="shadow">
-				<label class="label_close" onclick="cache_shadow()">X</label>
-				<div id="cssmenu2">
-					<ul>
-						<li class="has-sub"><a href="#"><span>Informatique</span></a>
-						<ul>
-							<li class="has-sub"><a href="#"><span>EDI</span></a>
-							<ul>
-								<li><a href="#"><span>Visual Studio</span></a></li>
-								<li><a href="#"><span>Eclipse</span></a></li>
-								<li><a href="#"><span>WinDev</span></a></li>
-								<li><a href="#"><span>WebDev</span></a></li>
-								<li class="last"><a href="#"><span>WinDev Mobile</span></a></li>
-							</ul>
-							</li>
-						</ul>
-						</li>
-						<li class="has-sub last"><a href="#"><span>Langages</span></a>
-						<ul>
-							<li><a href="#"><span>ActionScript</span></a></li>
-							<li><a href="#"><span>ASP.NET</span></a></li>
-							<li><a href="#"><span>C++</span></a></li>
-							<li><a href="#"><span>C#</span></a></li>
-							<li><a href="#"><span>COBOL</span></a></li>
-							<li><a href="#"><span>Delphi</span></a></li>
-							<li><a href="#"><span>F#</span></a></li>
-							<li><a href="#"><span>J#</span></a></li>
-							<li><a href="#"><span>J++</span></a></li>
-							<li><a href="#"><span>Java</span></a></li>
-							<li><a href="#"><span>JavaScript</span></a></li>
-							<li><a href="#"><span>PHP</span></a></li>
-							<li><a href="#"><span>HTML</span></a></li>
-							<li><a href="#"><span>VBA</span></a></li>
-							<li class="has-sub"><a href="#"><span>Visual Basic</span></a>
-							<ul>
-								<li><a href="#"><span>VB6</span></a></li>
-								<li class="last"><a href="#"><span>VB.Net</span></a></li>
-							</ul>
-							</li>
-						</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
 			<fieldset class="fieldset_profil">
 			<legend>Information Complémentaire</legend>
-			<textarea rows="15" cols="75">
-			</textarea>
+				<textarea rows="12" cols="30" name="infos">
+					<c:out value="${profilAAfficher.infos}"></c:out>
+				</textarea>
 			</fieldset>
+			
+			
+<!-- 			<div id="shadow" class="shadow"> -->
+<!-- 				<label class="label_close" onclick="cache_shadow()">X</label> -->
+<!-- 				<div id="cssmenu2"> -->
+<!-- 					<ul> -->
+<!-- 						<li class="has-sub"><a href="#"><span>Informatique</span></a> -->
+<!-- 						<ul> -->
+<!-- 							<li class="has-sub"><a href="#"><span>EDI</span></a> -->
+<!-- 							<ul> -->
+<!-- 								<li><a href="#"><span>Visual Studio</span></a></li> -->
+<!-- 								<li><a href="#"><span>Eclipse</span></a></li> -->
+<!-- 								<li><a href="#"><span>WinDev</span></a></li> -->
+<!-- 								<li><a href="#"><span>WebDev</span></a></li> -->
+<!-- 								<li class="last"><a href="#"><span>WinDev Mobile</span></a></li> -->
+<!-- 							</ul> -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 						</li> -->
+<!-- 						<li class="has-sub last"><a href="#"><span>Langages</span></a> -->
+<!-- 						<ul> -->
+<!-- 							<li><a href="#"><span>ActionScript</span></a></li> -->
+<!-- 							<li><a href="#"><span>ASP.NET</span></a></li> -->
+<!-- 							<li><a href="#"><span>C++</span></a></li> -->
+<!-- 							<li><a href="#"><span>C#</span></a></li> -->
+<!-- 							<li><a href="#"><span>COBOL</span></a></li> -->
+<!-- 							<li><a href="#"><span>Delphi</span></a></li> -->
+<!-- 							<li><a href="#"><span>F#</span></a></li> -->
+<!-- 							<li><a href="#"><span>J#</span></a></li> -->
+<!-- 							<li><a href="#"><span>J++</span></a></li> -->
+<!-- 							<li><a href="#"><span>Java</span></a></li> -->
+<!-- 							<li><a href="#"><span>JavaScript</span></a></li> -->
+<!-- 							<li><a href="#"><span>PHP</span></a></li> -->
+<!-- 							<li><a href="#"><span>HTML</span></a></li> -->
+<!-- 							<li><a href="#"><span>VBA</span></a></li> -->
+<!-- 							<li class="has-sub"><a href="#"><span>Visual Basic</span></a> -->
+<!-- 							<ul> -->
+<!-- 								<li><a href="#"><span>VB6</span></a></li> -->
+<!-- 								<li class="last"><a href="#"><span>VB.Net</span></a></li> -->
+<!-- 							</ul> -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			
 			
 			<fieldset class="fieldset_profil">
 			<legend>Mes Compétences</legend>
@@ -191,10 +213,14 @@
 				</tr>
 			</table>
 			</fieldset>
-			
+		
+		
 			<input name="submit" type="submit" value="Enregistrer les modifications" />
+		</form>
 			
 		</div>
+		
+		
 	</div>
 
 </div>
