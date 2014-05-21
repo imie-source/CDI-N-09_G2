@@ -24,7 +24,7 @@
 					<li><a href="gerer_competence.html"><span>Gérer les compétences</span></a></li>
 					<li><a href="importer_fichier.html"><span>Importer un fichier 
 					Excel</span></a></li>
-					<li class="last"><a href="gerer_profils.html"><span>Gérer 
+					<li class="last"><a href="/FilrougeIHM/Gerer_profils"><span>Gérer 
 					les profils</span></a></li>
 				</ul>
 				</li>
