@@ -50,9 +50,11 @@
 	float: left;
 }
 .table_projets2 {
+	margin: auto;
 	border: medium darkgreen ridge;
 	text-align: center;
 	color: #268e00;
+	border-collapse:collapse;
 }
 h2 {
 	background-image: linear-gradient(90deg, #268e00, #333333);
