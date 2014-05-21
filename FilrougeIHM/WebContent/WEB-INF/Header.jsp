@@ -17,7 +17,7 @@
 			<ul>
 				<li><a href="/FilrougeIHM/Accueil"><span>Accueil</span></a></li>
 				<li><a href="/FilrougeIHM/Projets"><span>Projets</span></a></li>
-				<li><a href="etudiants.html"><span>Etudiants</span></a></li>
+				<li><a href="/FilrougeIHM/Etudiants"><span>Etudiants</span></a></li>
 				<li class="has-sub"><a href="#"><span>Administration</span></a>
 				<ul>
 					<li><a href="/FilrougeIHM/Creer_projet"><span>Créer un projet</span></a></li>
