@@ -63,9 +63,12 @@ public class Profil_Controller extends HttpServlet
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
-		Profil profilUpdate = (Profil) request.getAttribute("profilAAfficher");
+		Profil profilUpdate = new Profil();
+		Integer id = Integer.valueOf(request.getParameter("id"));
+		profilUpdate.setId(id);
+		profilUpdate = profilService.rechercherProfil(profilUpdate).get(0);
 
-		String infos = (String) request.getAttribute("infos");
+		String infos = request.getParameter("infos");
 		if (infos != null)
 		{
 			profilUpdate.setInfos(infos);
