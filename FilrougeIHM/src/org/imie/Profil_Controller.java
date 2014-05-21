@@ -2,6 +2,9 @@
 package org.imie;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -18,7 +21,7 @@ import org.imie.service.profil.ProfilServiceLocal;
 /**
  * Servlet implementation class Profil
  */
-@WebServlet("/Profil")
+@WebServlet("/Profil/*")
 public class Profil_Controller extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
@@ -43,16 +46,36 @@ public class Profil_Controller extends HttpServlet
 			HttpServletResponse response) throws ServletException, IOException
 	{
 
-		Profil profilAAfficher = (Profil) request.getSession().getAttribute(
-				"authentifiedProfil");
+		StringBuffer url = request.getRequestURL();
+		// Déclaration du pattern de consultation d'un projet
+		Pattern pattern = Pattern.compile(".*/Projets/([0-9]+)");
+		Matcher matcher = pattern.matcher(url);
+		// Si il y a un id de projet dans l'id
+		Profil profilAAfficher = new Profil();
+		if (matcher.find())
+		{
+			Integer id = Integer.valueOf(matcher.group(1));
+
+			profilAAfficher.setId(id);
+			List<Profil> result = profilService
+					.rechercherProfil(profilAAfficher);
+			if (!result.isEmpty())
+			{
+				profilAAfficher = result.get(0);
+			}
+			else
+			{
+				profilAAfficher = (Profil) request.getSession().getAttribute(
+						"authentifiedProfil");
+			}
+		}
+		else
+		{
+			profilAAfficher = (Profil) request.getSession().getAttribute(
+					"authentifiedProfil");
+		}
 
 		request.setAttribute("profilAAfficher", profilAAfficher);
-		// List<Profil> profils = profilService.rechercherProfil(new Profil());
-		// request.setAttribute("profils", profils);
-		// if (profils.size() > 0)
-		// {
-		// request.setAttribute("profilAAfficher", profils.get(0));
-		// }
 
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/WEB-INF/Profil.jsp");
