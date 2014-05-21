@@ -33,11 +33,20 @@
 					<td><c:out value="${profil.prenom}"></c:out></td>
 					<td><c:out value="${profil.promotion.prmIntitule}"></c:out></td>
 					<td>
-					<img alt="" src="/FilrougeIHM/style/images/icons/eye.png" title="Voir le profil" width="25" /></td>
+						<a href="/FilrougeIHM/Gerer_profils/read/${profil.id}">
+							<img alt="" src="/FilrougeIHM/style/images/icons/eye.png" title="Voir le profil" width="25" />
+						</a>
+					</td>
 					<td>
-					<img alt="" src="/FilrougeIHM/style/images/icons/highlight.png" title="Editer le profil" width="25" /></td>
+						<a href="/FilrougeIHM/Gerer_profils/update/${profil.id}">
+							<img alt="" src="/FilrougeIHM/style/images/icons/highlight.png" title="Editer le profil" width="25" />
+						</a>
+					</td>
 					<td>
-					<img alt="" src="/FilrougeIHM/style/images/icons/cancel.png" title="Supprimer le profil" width="25" /></td>
+						<a href="/FilrougeIHM/Gerer_profils/delete/${profil.id}">
+							<img alt="" src="/FilrougeIHM/style/images/icons/cancel.png" title="Supprimer le profil" width="25" />
+						</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
