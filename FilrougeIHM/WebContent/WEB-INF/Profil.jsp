@@ -24,49 +24,51 @@
 			<div class="div_contenu_profil">
 	
 				<div class="row_profil">
-					<label class="label_profil">Login : </label><label>TODO</label>
+					<label class="label_profil">Login : </label>
+					<label> 
+						<c:out value="${profilAAfficher.identConnexion}"></c:out> 
+					</label>
 				</div>
 				
 				<div class="row_profil">
-				<label class="label_profil">Mot de passe : </label>
-				<a class="a_profil" href="#">TODO</a>
-				</div>
-				
-				<div class="row_profil">
-					<label>TODO Prenom NOM</label>				
+					<label class="label_profil">Nom : </label>
+					<label> 
+						<c:out value="${profilAAfficher.prenom} ${profilAAfficher.nom}"></c:out> 
+					</label>			
 				</div>
 	
 				<div class="row_profil">
-					<label>TODO age</label>
+					<label class="label_profil">Date Naissance : </label>
+					<label>
+						<c:set var="date" value="${profilAAfficher.dateNaissance}" />
+						<c:choose>
+							<c:when test="${date == null}">
+								<c:out value="Non spécifiée"></c:out>
+							</c:when>
+							<c:otherwise>
+								<fmt:formatDate pattern="dd/MM/yyyy" value="${date}"/>
+							</c:otherwise>
+						</c:choose>
+					</label>
+				</div>
+			
+				<div class="row_profil">
+					<label class="label_profil">Mail : </label>
+					<label>
+						<c:out value="${profilAAfficher.email}"></c:out> 
+					</label>
 				</div>
 				
 				<div class="row_profil">
-					<label>TODO ville</label>
 					<a class="a_profil2" href="#">Modifier</a>
-					<input name="Checkbox1" type="checkbox" />
+					<input checked="checked" name="Checkbox1" type="checkbox" />
 					<label class="a_profil2">Masquer cette information</label>
 				</div>
 			
 				<div class="row_profil">
-					<label>TODO mail</label>
-					<a class="a_profil2" href="#">Modifier</a>
-					<input checked="checked" name="Checkbox1" type="checkbox" />
-					<label class="a_profil2">Masquer cette information</label>
-				</div>
-				
-				<div class="row_profil">
-					<label>TODO tel</label>
-					<a class="a_profil2" href="#">Modifier</a>	
-					<input checked="checked" name="Checkbox1" type="checkbox" />
-					<label class="a_profil2">Masquer cette information</label>
-				</div>
-				
-				
-				<div class="row_profil">
 					<label class="label_profil">Promotion : </label>
 					<label>TODO PROMO</label>
 				</div>
-				
 				
 				<div class="row_profil">
 					<label class="label_profil">Lieu de formation :</label>
