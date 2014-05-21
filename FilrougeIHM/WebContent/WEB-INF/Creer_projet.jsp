@@ -41,20 +41,6 @@
 					<td>
 					<input class="projet_input" name="projet_datef" type="text" /></td>
 				</tr>
-				<tr>
-					<th>Compétences requises : </th>
-					<td>
-					<input name="projet_cr" onclick="affich_shadow()" type="button" value="Sélectionner" /></td>
-				</tr>
-				<tr>
-					<th>Compétences sélectionnées : </th>
-					<td>Compétence1<img alt="" src="images/icons/cancel.png" width="20" /><br />
-					Compétence2<img alt="" src="images/icons/cancel.png" width="20" /><br />
-					Compétence3<img alt="" src="images/icons/cancel.png" width="20" /><br />
-					Compétence4<img alt="" src="images/icons/cancel.png" width="20" /><br />
-					Compétence5<img alt="" src="images/icons/cancel.png" width="20" /><br />
-					</td>
-				</tr>
 			</table>
 			<input type="button" value="Créer le projet" /> </fieldset></div>
 	</div>

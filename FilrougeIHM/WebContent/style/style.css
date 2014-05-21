@@ -7,7 +7,6 @@
 }
 .contenu {
 	min-height: 300px;
-	background-color: red;
 }
 .footer {
 	/*position: absolute;*/
@@ -35,8 +34,8 @@
 .detail_projet {
 	text-align: center;
 	color: #268e00;
-	width: 48%;
-	float: left
+	width: 80%;
+	margin-left: 10%
 }
 .table_projets th {
 	color: black;

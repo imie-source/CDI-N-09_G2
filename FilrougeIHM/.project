@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>FilrougeEntities</project>
+		<project>FilrougeServices</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
