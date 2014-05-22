@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Profil;
 import model.Projet;
 
 import org.imie.service.projet.ProjetServiceLocal;
@@ -61,26 +62,45 @@ public class MesProjets_Controller extends HttpServlet
 			HttpServletResponse response) throws ServletException, IOException
 	{
 		Projet projetSelectionne = new Projet();
-		List<Projet> projets = projetService.rechercherProjet(new Projet());
-		request.removeAttribute("projets");
-		request.setAttribute("projets", projets);
-		// Déclaration du pattern de consultation d'un projet
-		Pattern pattern = Pattern.compile(".*/Projets/([0-9]*)");
-		Matcher matcher = pattern.matcher(request.getRequestURL());
-		// Si il y a un id de projet dans l'id
-		if (matcher.find())
+		Projet projet = new Projet();
+		Profil profil = (Profil) request.getSession().getAttribute(
+				"authentifiedProfil");
+		if (request.getRequestURI().contains("cdp"))
 		{
-			projetSelectionne.setId(Integer.valueOf(matcher.group(1)));
-			List<Projet> projetTrouve = projetService
-					.rechercherProjet(projetSelectionne);
-			if (projetTrouve.size() > 0)
+			request.setAttribute("uri", "/mesprojets/cdp/");
+			// Déclaration du pattern de consultation d'un projet
+			Pattern patternCdp = Pattern.compile(".*/mesprojets/cdp/([0-9]*)");
+			Matcher matcherCdp = patternCdp.matcher(request.getRequestURL());
+			projet.setProfil(profil);
+			List<Projet> projets = projetService.rechercherProjet(projet);
+			request.removeAttribute("projets");
+			request.setAttribute("projets", projets);
+			// Si il y a un id de projet dans l'url
+			if (matcherCdp.find())
 			{
-				projetSelectionne = projetTrouve.get(0);
+				projetSelectionne.setId(Integer.valueOf(matcherCdp.group(1)));
+				List<Projet> projetTrouve = projetService
+						.rechercherProjet(projetSelectionne);
+				if (projetTrouve.size() > 0)
+				{
+					projetSelectionne = projetTrouve.get(0);
+				}
 			}
+			if (projets.size() > 0)
+			{
+				request.setAttribute("projetSelectionne", projetSelectionne);
+			}
+
 		}
-		if (projets.size() > 0)
+		else if (request.getRequestURI().contains("membre"))
 		{
-			request.setAttribute("projetSelectionne", projetSelectionne);
+			request.setAttribute("uri", "/mesprojets/membre/");
+			// Déclaration du pattern de consultation d'un projet
+			Pattern patternMembre = Pattern
+					.compile(".*/mesprojets/membre/([0-9]*)");
+			Matcher matcherMembre = patternMembre.matcher(request
+					.getRequestURL());
+			request.removeAttribute("projets");
 		}
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/WEB-INF/mesProjets.jsp");

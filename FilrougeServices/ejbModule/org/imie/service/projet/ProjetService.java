@@ -16,6 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import model.Profil;
 import model.Projet;
 
 /**
@@ -72,6 +73,13 @@ public class ProjetService implements ProjetServiceRemote, ProjetServiceLocal
 		{
 			predicates.add(criteriaBuilder.equal(
 					rootProjet.<String> get("prenom"), projet.getAvancement()));
+		}
+
+		// Filtre sur Profil
+		if (projet.getProfil() != null)
+		{
+			predicates.add(criteriaBuilder.equal(
+					rootProjet.<Profil> get("profil"), projet.getProfil()));
 		}
 
 		// Ajout des criteres de recherche fabriques ci dessus

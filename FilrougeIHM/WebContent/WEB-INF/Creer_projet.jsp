@@ -19,30 +19,35 @@
 	<div class="contenu">
 		<h2>Créer un projet</h2>
 		<div class="div_profil">
-			<fieldset class="fieldset_profil">
-			<legend>Créer un projet</legend>
-			<table>
-				<tr>
-					<th>Nom du projet : </th>
-					<td>
-					<input class="projet_input" name="projet_name" type="text" /></td>
-				</tr>
-				<tr>
-					<th>Descriptif : </th>
-					<td><textarea class="projet_textarea"></textarea></td>
-				</tr>
-				<tr>
-					<th>Date début (format jj/mm/aaaa) : </th>
-					<td>
-					<input class="projet_input" name="projet_dated" type="text" /></td>
-				</tr>
-				<tr>
-					<th>Date fin (format jj/mm/aaaa) : </th>
-					<td>
-					<input class="projet_input" name="projet_datef" type="text" /></td>
-				</tr>
-			</table>
-			<input type="button" value="Créer le projet" /> </fieldset></div>
+			${message }
+			<form method="POST">
+				<fieldset class="fieldset_profil">
+					<legend>Créer un projet</legend>
+					<table>
+						<tr>
+							<th>Nom du projet : </th>
+							<td>
+							<input class="projet_input" name="projet_name" type="text" /></td>
+						</tr>
+						<tr>
+							<th>Descriptif : </th>
+							<td><textarea class="projet_textarea"></textarea></td>
+						</tr>
+						<tr>
+							<th>Date début (format jj/mm/aaaa) : </th>
+							<td>
+							<input class="projet_input" name="projet_dated" type="text" /></td>
+						</tr>
+						<tr>
+							<th>Date fin (format jj/mm/aaaa) : </th>
+							<td>
+							<input class="projet_input" name="projet_datef" type="text" /></td>
+						</tr>
+					</table>
+					<input type="submit" value="Créer le projet" />
+				</fieldset>
+			</form>
+		</div>
 	</div>
 	<div class="footer">
 		Copyright 2014 © Team S.P.A.R.K Tous droits réservés </div>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -49,11 +50,10 @@
 					</tr>
 				</thead>
 				<tbody>
-				
 					<c:forEach var="projet" items="${ projets }">
 				
 						<tr>
-							<c:url value="/Projets/${projet.id }" var="urlProjet"></c:url>
+							<c:url value="${uri }${projet.id }" var="urlProjet"></c:url>
 							<td><a href="${urlProjet}"><c:out value="${projet.nom }"></c:out></a></td>
 							<td><c:set var="date" value="${projet.datedebut }" />
 								<fmt:formatDate pattern="dd/MM/yyyy" value="${date }"/></td>
