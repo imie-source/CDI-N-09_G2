@@ -105,6 +105,12 @@ public class Profil_Controller extends HttpServlet
 			profilUpdate.setInfos(infos);
 		}
 
+		String mail = request.getParameter("mail");
+		if (mail != null)
+		{
+			profilUpdate.setEmail(mail);
+		}
+
 		profilUpdate = profilService.mettreAJourProfil(profilUpdate);
 		request.setAttribute("profilAAfficher", profilUpdate);
 

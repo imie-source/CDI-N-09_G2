@@ -30,8 +30,8 @@
 				</li>
 				<li class="has-sub"><a href="#"><span>Mes Projets</span></a>
 				<ul>
-					<li><a href="/FilrougeIHM/EnConstruction"><span>Chef de projet</span></a></li>
-					<li class="last"><a href="/FilrougeIHM/EnConstruction"><span>Participant</span></a></li>
+					<li><a href="/FilrougeIHM/mesprojets/cdp"><span>Chef de projet</span></a></li>
+					<li class="last"><a href="/FilrougeIHM/mesprojets/membre"><span>Participant</span></a></li>
 				</ul>
 				</li>
 				<li><a href="/FilrougeIHM/Profil"><span>Mon Profil</span></a></li>

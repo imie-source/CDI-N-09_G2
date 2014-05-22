@@ -190,6 +190,11 @@ a:VISITED {
 .projet_input {
 	width:250px
 }
+div.editable {
+	border: thin white ridge;
+	color: #cccccc;
+	border-radius: 10px;
+}
 .projet_textarea {
 	width:350px;
 	height:150px

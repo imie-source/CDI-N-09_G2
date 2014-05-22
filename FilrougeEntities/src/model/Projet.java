@@ -63,84 +63,84 @@ public class Projet implements Serializable
 	{
 	}
 
-	public Integer getProjId()
+	public Integer getId()
 	{
 		return this.id;
 	}
 
-	public void setProjId(Integer projId)
+	public void setId(Integer id)
 	{
-		this.id = projId;
+		this.id = id;
 	}
 
-	public String getProjAvancement()
+	public String getAvancement()
 	{
 		return this.avancement;
 	}
 
-	public void setProjAvancement(String projAvancement)
+	public void setAvancement(String avancement)
 	{
-		this.avancement = projAvancement;
+		this.avancement = avancement;
 	}
 
-	public Date getProjDatedebut()
+	public Date getDatedebut()
 	{
 		return this.datedebut;
 	}
 
-	public void setProjDatedebut(Date projDatedebut)
+	public void setDatedebut(Date datedebut)
 	{
-		this.datedebut = projDatedebut;
+		this.datedebut = datedebut;
 	}
 
-	public Date getProjDatedefin()
+	public Date getDatedefin()
 	{
 		return this.datedefin;
 	}
 
-	public void setProjDatedefin(Date projDatedefin)
+	public void setDatedefin(Date datedefin)
 	{
-		this.datedefin = projDatedefin;
+		this.datedefin = datedefin;
 	}
 
-	public String getProjDescription()
+	public String getDescription()
 	{
 		return this.description;
 	}
 
-	public void setProjDescription(String projDescription)
+	public void setDescription(String description)
 	{
-		this.description = projDescription;
+		this.description = description;
 	}
 
-	public String getProjNom()
+	public String getNom()
 	{
 		return this.nom;
 	}
 
-	public void setProjNom(String projNom)
+	public void setNom(String nom)
 	{
-		this.nom = projNom;
+		this.nom = nom;
 	}
 
-	public String getProjWikiCdp()
+	public String getWikiCdp()
 	{
 		return this.wikiCdp;
 	}
 
-	public void setProjWikiCdp(String projWikiCdp)
+	public void setWikiCdp(String wikiCdp)
 	{
-		this.wikiCdp = projWikiCdp;
+		this.wikiCdp = wikiCdp;
 	}
 
-	public String getProjWikiMembre()
+	public String getWikiMembre()
 	{
 		return this.wikiMembre;
 	}
 
-	public void setProjWikiMembre(String projWikiMembre)
+	public void setWikiMembre(String wikiMembre)
 	{
-		this.wikiMembre = projWikiMembre;
+		this.wikiMembre = wikiMembre;
 	}
 
 	public Profil getProfil()

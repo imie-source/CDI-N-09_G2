@@ -9,6 +9,17 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <link href="/FilrougeIHM/style/style.css" rel="stylesheet" />
 <link href="/FilrougeIHM/style/style_menu.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/FilrougeIHM/js/bootstrap-progressbar-3.1.0.css">
+<script type="text/javascript" src="/FilrougeIHM/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/FilrougeIHM/js/tinymce.min.js"></script>
+<script type='text/javascript' src="/FilrougeIHM/js/bootstrap-3.1.0.min.js"></script>
+<script type='text/javascript' src="/FilrougeIHM/js/bootstrap-progressbar.js"></script>
+<script>
+        $(document).ready(function() {
+            $('.progress-bar').progressbar({use_percentage: false});
+        });
+	 
+</script>
 <title>Accueil</title>
 </head>
 
@@ -18,7 +29,7 @@
 	<%@include file="Header.jsp" %>
 	<div class="contenu">
 		<h2>Accueil - Derniers Projets Ajoutés</h2>
-		<table align="center" border="2" class="table_projets">
+		<table align="center" class="table_projets">
 			<thead>
 				<tr>
 					<th>Nom du projet</th>
@@ -33,13 +44,17 @@
 				<c:forEach var="projet" items="${ projets }">
 			
 					<tr>
-						<td><c:out value="${projet.projNom }"></c:out></td>
-						<td><c:out value="${projet.projDescription }"></c:out></td>
-						<td><c:set var="date" value="${projet.projDatedebut }" />
+						<td><c:out value="${projet.nom }"></c:out></td>
+						<td><c:out value="${projet.description }"></c:out></td>
+						<td><c:set var="date" value="${projet.datedebut }" />
 							<fmt:formatDate pattern="dd/MM/yyyy" value="${date }"/></td>
-						<td><c:set var="date" value="${projet.projDatedefin }" />
+						<td><c:set var="date" value="${projet.datedefin }" />
 							<fmt:formatDate pattern="dd/MM/yyyy" value="${date }"/></td>
-						<td><img alt="" height="30" src="/FilrougeIHM/style/images/pb0.png" /></td>
+						<td>
+							<div class="progress progress-striped active">
+							    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuetransitiongoal="${projet.avancement }"></div>
+							</div>
+						</td>
 					</tr>
 					
 				</c:forEach>

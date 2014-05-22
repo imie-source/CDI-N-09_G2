@@ -21,8 +21,8 @@ import org.imie.service.projet.ProjetServiceLocal;
 /**
  * Servlet implementation class Projets_Controller
  */
-@WebServlet("/Projets/*")
-public class Projets_Controller extends HttpServlet
+@WebServlet("/mesprojets/*")
+public class MesProjets_Controller extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class Projets_Controller extends HttpServlet
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Projets_Controller()
+	public MesProjets_Controller()
 	{
 		super();
 	}
@@ -83,7 +83,7 @@ public class Projets_Controller extends HttpServlet
 			request.setAttribute("projetSelectionne", projetSelectionne);
 		}
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("/WEB-INF/Projets.jsp");
+				.getRequestDispatcher("/WEB-INF/mesProjets.jsp");
 		dispatcher.forward(request, response);
 	}
 

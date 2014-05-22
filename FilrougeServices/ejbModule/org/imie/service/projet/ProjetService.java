@@ -54,25 +54,24 @@ public class ProjetService implements ProjetServiceRemote, ProjetServiceLocal
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
 		// Filtre sur id
-		if (projet.getProjId() != null)
+		if (projet.getId() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
-					rootProjet.<Integer> get("id"), projet.getProjId()));
+					rootProjet.<Integer> get("id"), projet.getId()));
 		}
 
 		// Filtre sur nom
-		if (projet.getProjNom() != null)
+		if (projet.getNom() != null)
 		{
 			predicates.add(criteriaBuilder.like(rootProjet.<String> get("nom"),
-					"%".concat(projet.getProjNom()).concat("%")));
+					"%".concat(projet.getNom()).concat("%")));
 		}
 
 		// Filtre sur Avancement
-		if (projet.getProjAvancement() != null)
+		if (projet.getAvancement() != null)
 		{
 			predicates.add(criteriaBuilder.equal(
-					rootProjet.<String> get("prenom"),
-					projet.getProjAvancement()));
+					rootProjet.<String> get("prenom"), projet.getAvancement()));
 		}
 
 		// Ajout des criteres de recherche fabriques ci dessus
@@ -97,7 +96,7 @@ public class ProjetService implements ProjetServiceRemote, ProjetServiceLocal
 	public Projet mettreAJourProjet(Projet projet)
 	{
 		Projet result = null;
-		if (projet.getProjId() != null)
+		if (projet.getId() != null)
 		{
 			result = entityManager.merge(projet);
 		}
@@ -107,7 +106,7 @@ public class ProjetService implements ProjetServiceRemote, ProjetServiceLocal
 	@Override
 	public void supprimerProjet(Projet projet)
 	{
-		if (projet.getProjId() != null)
+		if (projet.getId() != null)
 		{
 			entityManager.remove(entityManager.merge(projet));
 		}

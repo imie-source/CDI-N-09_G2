@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="/FilrougeIHM/style/style.css" rel="stylesheet" />
 <link href="/FilrougeIHM/style/style_menu.css" rel="stylesheet" />
+
 <title>Profil</title>
 </head>
 <body>
@@ -67,9 +68,8 @@
 			
 				<div class="row_profil">
 					<label class="label_profil">Mail : </label>
-					<label>
-						<c:out value="${profilAAfficher.email}"></c:out> 
-					</label>
+					<input type="text" name="mail" value="${profilAAfficher.email}" />
+						 
 				</div>
 				
 				<div class="row_profil">
