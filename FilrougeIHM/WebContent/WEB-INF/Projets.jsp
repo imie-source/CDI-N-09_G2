@@ -75,7 +75,7 @@
 		<div class="detail_projet">
 			<fieldset class="fieldset_projet">
 				<legend>Créer un projet</legend>
-				<table>
+				<table id="table_proj">
 					<tr>
 						<th>Nom du projet : </th>
 						<td>

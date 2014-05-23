@@ -6,7 +6,7 @@
 	height: 150px;
 }
 .contenu {
-	min-height: 300px;
+	min-height: 530px;
 	width: 100%;
 }
 .footer {
@@ -136,8 +136,11 @@ a:VISITED {
 	border: medium #268e00 ridge;
 	border-radius: 10px;
 	background-color: black;
-	color: #268e00;
 	margin: 5px;
+}
+#table_proj td {
+	text-align:left;
+	color: #cccccc;
 }
 .fieldset_projet legend {
 	color: #6b6b6b;
@@ -158,6 +161,10 @@ a:VISITED {
 	display:none;
 	z-index:99;
 	overflow-y:scroll
+}
+.editable {
+	width : 300px;
+	height : 100px;
 }
 .label_close {
 	border:thin #268e00 ridge;
